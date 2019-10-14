@@ -1,0 +1,68 @@
+$pinkColor: #CE0060;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    background-color: #ffffff;
+    color: #555555;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h2 {
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.col-xs-6 {
+    width: 50%;
+    float: left;
+}
+
+.row {
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+footer {
+    background-color: #efefef;
+    padding: 15px 0;
+    font-size: 80%;
+}
+
+/* ------- Button ------- */
+
+.btn-full {
+    border: none;
+    height: 40px;
+    background-color: $pinkColor;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+}
+
+/* ------ Main Content ------ */
+
+.section-main {
+    padding-top: 90px;
+}

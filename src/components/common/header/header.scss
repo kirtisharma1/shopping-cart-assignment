@@ -1,0 +1,82 @@
+$pinkColor: #CE0060;
+
+.header-main {
+    height: 90px;
+    box-shadow: 0 2px 2px #efefef;
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+
+    nav {
+        display: flex;
+    }
+}
+
+.main-nav {
+    display: inline-block;
+    margin: 50px 40px 0;
+    width: 200px;
+
+    li {
+        display: inline-block;
+
+        a:link,
+        a:visited{
+            padding: 10px 30px;
+            // font-weight: 300;
+            text-decoration: none;
+            color: #333333;
+        }
+    }
+}
+
+.header-logo {
+    display: inline-block;
+    margin-top: 10px;
+    height: 75px;
+    vertical-align: top;
+}
+
+.signup-nav {
+    display: inline-block;
+    width: 65%;
+    padding: 10px 0;
+    float: right;
+    font-size: 70%;
+
+    li {
+        display: inline-block;
+        text-align: right;
+
+        a{
+            text-decoration: none;
+            color: #333333;
+        }
+    }
+}
+
+.btn-cart {
+    float: right;
+    width: 60%;
+    height: 56px;
+    border: none;
+
+    img {
+        width: 37%;
+        vertical-align: middle;
+    }
+}
+
+svg {
+    fill: $pinkColor;
+}
+
+.header-left {
+    width: 80%;
+    float: left;
+}
+
+.header-right {
+    width: 20%;
+    float: left;
+}

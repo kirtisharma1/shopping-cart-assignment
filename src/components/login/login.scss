@@ -1,0 +1,49 @@
+.section-login {
+    width: 75%;
+    margin: 0 auto;
+
+
+    .left-col-login, .right-col-login {
+        float: left;
+        padding: 20px 40px;
+    }
+    
+    .left-col-login {
+        width: 40%;
+        padding: 75px 40px;
+
+        p {
+            margin-top: 20px;
+            font-size: 65%;
+            line-height: 145%;
+        }
+    }
+    
+    .right-col-login {
+        width: 60%;
+    
+        div{
+            margin: 25px 0;
+    
+            label {
+                display: block;
+            }
+    
+            input[type = text],
+            input[type = email], 
+            input[type = password] {
+                border: none;
+                border-bottom: 2px solid #dddddd;
+                width: 60%;
+                height: 45px;
+            }
+        }
+    
+        .btn-login {
+            width: 60%;
+        }
+    }
+}
+
+
+
