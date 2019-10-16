@@ -1,110 +1,216 @@
 .cart-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    .section-main {
+        background-color: #efefef;
 
-    .section-cart {
-        background-color: #ffffff;
-        // height: 300px;
-        width: 50%;
-        float: right;
-        top: 90px;
-
-        .header-cart {
-            background-color: #333333;
-            display: flex;
-            justify-content: space-between;
-            color: #ffffff;
-            padding: 20px;
-            font-size: 90%;
-            font-weight: 700;
-
-            i {
-                cursor: pointer;
-            }
-        }
-
-        section {
-            height: 500px;
-            overflow: auto;
-            background-color: #efefef;
-
-            &.empty-cart {
-                background-color: #ffffff;
-                display: flex;
-                align-items: center;
-                text-align: center;
-
-                div {
-                    margin: 0 auto;
-                    line-height: 150%;
-
-                    p:first-child {
-                        font-weight: 700;
-                    }
-
-                    p:last-child {
-                        font-size: 90%;
-                    }
-                }
-            }
-
-            .lowest-price {
-                display: flex;
-                align-items: center;
-                background-color: #ffffff;
-                padding: 10px 15px;
-                margin: 15px;
-                border-radius: 5px;
-                font-size: 70%;
-
-                img {
-                    margin-right: 20px;
-                    height: 35px;
-                }
-            }
-        }
-
-        footer {
-            background-color: #ffffff;
-            box-shadow: 0px -2px 4px #cccccc;
-
-            p {
-                text-align: center;
-                margin-bottom: 10px;
-                color: #333333;
-                font-size: 90%;
-            }
-
-            .btn-checkout {
-                width: 94%;
-                margin: 0 3%;
-                border-radius: 3px;
-                font-size: 100%;
-                height: 45px;
-                padding: 0 20px;
-                text-align: left;
+        .section-cart {
+            width: 100%;
+    
+            .header-cart {
                 display: flex;
                 justify-content: space-between;
+                background-color: #ffffff;
+                padding: 20px;
+                font-size: 90%;
+                margin-top: 20px;
+                font-weight: 700;
+    
+                i {
+                    display: none;
+                }
             }
-
-            .btn-shopping {
-                display: block;
-                margin: 0 auto;
-                width: 95%;
-                text-decoration: none;
-                padding: 11px;
-                text-align: center;
+    
+            section {
+                background-color: #efefef;
+                padding-bottom: 90px;
+                min-height: 66vh;
+    
+                &.empty-cart {
+                    background-color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+    
+                    div {
+                        margin: 0 auto;
+                        line-height: 150%;
+    
+                        p:first-child {
+                            font-weight: 700;
+                        }
+    
+                        p:last-child {
+                            font-size: 90%;
+                        }
+                    }
+                }
+    
+                .lowest-price {
+                    display: flex;
+                    align-items: center;
+                    background-color: #ffffff;
+                    padding: 10px 15px;
+                    margin: 15px;
+                    border-radius: 5px;
+                    font-size: 70%;
+    
+                    img {
+                        margin-right: 20px;
+                        height: 35px;
+                    }
+                }
             }
+    
+            footer {
+                background-color: #ffffff;
+                box-shadow: 0px -2px 4px #cccccc;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+    
+                p {
+                    text-align: center;
+                    margin-bottom: 10px;
+                    color: #333333;
+                    font-size: 90%;
+                }
+    
+                .btn-checkout {
+                    width: 94%;
+                    margin: 0 3%;
+                    border-radius: 3px;
+                    font-size: 100%;
+                    height: 45px;
+                    padding: 0 20px;
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+                }
+    
+                .btn-shopping {
+                    display: block;
+                    margin: 0 auto;
+                    width: 95%;
+                    text-decoration: none;
+                    padding: 11px;
+                    text-align: center;
+                }
+    
+                &.empty-cart {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
 
-            &.empty-cart {
-                box-shadow: none;
+    
+}
+
+/* Small phones: more than 320px to 480 */
+
+@media only screen and (min-width: 320px) {
+    
+}
+
+/* Small phones to small tablets: from 481 to 767px */
+
+@media only screen and (min-width: 480px) {
+    
+}
+
+
+/* Small tablets to big tablets: from 768 to 1023px */
+
+@media only screen and (min-width: 768px) {
+    .cart-container {
+        .section-main {           
+            .section-cart {
+                section {
+                    min-height: 73vh;
+                }
+            }
+        }
+    }
+}
+
+/* Big tablets to s tablets: from 768 to 1023px */
+
+@media only screen and (min-width: 1200px) {
+    .cart-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        .section-main {
+            background: transparent;
+            
+            .section-cart {
+                width: 50%;
+                float: right;
+        
+                .header-cart {
+                    background-color: #333333;
+                    color: #ffffff;
+                    margin-top: 0;
+        
+                    i {
+                        cursor: pointer;
+                        display: inline;
+                    }
+                }
+        
+                section {
+                    height: 500px;
+                    min-height: 500px;
+                    overflow: auto;
+        
+                    &.empty-cart {
+                        background-color: #ffffff;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+        
+                        div {
+                            margin: 0 auto;
+                            line-height: 150%;
+        
+                            p:first-child {
+                                font-weight: 700;
+                            }
+        
+                            p:last-child {
+                                font-size: 90%;
+                            }
+                        }
+                    }
+        
+                    .lowest-price {
+                        display: flex;
+                        align-items: center;
+                        background-color: #ffffff;
+                        padding: 10px 15px;
+                        margin: 15px;
+                        border-radius: 5px;
+                        font-size: 70%;
+        
+                        img {
+                            margin-right: 20px;
+                            height: 35px;
+                        }
+                    }
+                }
+        
+                footer {
+                    position: static;
+        
+                    &.empty-cart {
+                        box-shadow: none;
+                    }
+                }
             }
         }
     }

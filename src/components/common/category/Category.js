@@ -9,7 +9,7 @@ export default function Category(props) {
             <div className="category-content">
                 <h3>{category.name}</h3>
                 <p>{category.description}</p>
-                <Link to={{pathname : '/plp/'+ category.name, state: {id: category.id}}}>{category.name}</Link>
+                <Link to={{pathname : '/plp/'+ category.key, state: {id: category.id}}}>{category.name}</Link>
             </div>
             <div className="category-image">
                 <img src={category.imageUrl}></img>

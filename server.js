@@ -53,9 +53,15 @@ server.get('/api/getcart', (req, res) => {
     })
 });
 
-server.get('/api/offers', (req, res) => {
-    const offers = require("./server/banners/index.get.json");
-    res.end(JSON.stringify(offers));
+server.get('/api/banners', (req, res) => {
+    const banners = require("./server/banners/index.get.json");
+    banners.sort((a, b) => {
+        if(isFinite(Number(a.order)) && isFinite(Number(b.order))){
+            return a.order - b.order;
+        }
+    });
+    const filteredList = banners.filter(item => item.isActive);
+    res.end(JSON.stringify(filteredList));
 });
 
 server.get('*', (req, res) => {

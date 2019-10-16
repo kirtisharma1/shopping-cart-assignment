@@ -1,41 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from '../common/productCard/ProductCard';
 import { GET_PRODUCTS } from '../../constants';
 
-export default class ProductList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            category: {},
-            productList: []
-        }
-    }
+export default function ProductList(props) {
+    const [productList, setProductList] = useState([]);
+    const [isAllCategory, setIsAllCategory] = useState(false);
 
-    render() {
-        let { category, productList } = this.state;
-        return (
-            <>
-            {productList.map(product => {
-                return (
-                    <ProductCard key={product.id} cart={this.props.cart} product={product} />
-                )
-            })}
-            </>
-        )
-    }
-
-
-    getProductList = () => {
-        // console.log('props', this.props)
-        let id = this.props.category && this.props.category.id || 'all'
+    const getProductList = () => {
+        let id = props.category && props.category.id || 'all';
+        setIsAllCategory(id === 'all');
         fetch(GET_PRODUCTS+id)
         .then(res => res.json())
-        .then(productList => this.setState({productList}));
+        .then(productList => setProductList(productList));
     }
 
-    componentDidUpdate(prevProps) {
-        if((this.props.category && !prevProps.category) || (prevProps.category && prevProps.category.id !== this.props.category.id) || !this.state.productList.length){
-            this.getProductList();
-        }
-    }
+    useEffect(() => {
+            if(props.category) {
+                if(productList.length && productList[0].category === props.category.id && !isAllCategory){
+                }else {
+                    getProductList();
+                }
+            }else {
+                if(productList.length && isAllCategory) {
+
+                }else {
+                    getProductList();
+                }
+            }
+        });
+
+    return (
+        <>
+        {productList.map(product => {
+            return (
+                <ProductCard category={props.category} key={product.id} cart={props.cart} product={product} />
+            )
+        })}
+        </>
+    )
 }

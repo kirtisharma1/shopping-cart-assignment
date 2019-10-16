@@ -4,31 +4,16 @@ $pinkColor: #CE0060;
     height: 90px;
     box-shadow: 0 2px 2px #efefef;
     position: fixed;
+    top: 0;
     width: 100%;
     background-color: #ffffff;
+    z-index: 2;
 
     nav {
         display: flex;
     }
 }
 
-.main-nav {
-    display: inline-block;
-    margin: 50px 40px 0;
-    width: 200px;
-
-    li {
-        display: inline-block;
-
-        a:link,
-        a:visited{
-            padding: 10px 30px;
-            // font-weight: 300;
-            text-decoration: none;
-            color: #333333;
-        }
-    }
-}
 
 .header-logo {
     display: inline-block;
@@ -55,17 +40,7 @@ $pinkColor: #CE0060;
     }
 }
 
-.btn-cart {
-    float: right;
-    width: 60%;
-    height: 56px;
-    border: none;
 
-    img {
-        width: 37%;
-        vertical-align: middle;
-    }
-}
 
 svg {
     fill: $pinkColor;
@@ -74,9 +49,65 @@ svg {
 .header-left {
     width: 80%;
     float: left;
+
+    .main-nav {
+        display: inline-block;
+        margin: 50px 40px 0;
+        width: 200px;
+    
+        li {
+            display: inline-block;
+    
+            a:link,
+            a:visited{
+                padding: 10px 30px;
+                // font-weight: 300;
+                text-decoration: none;
+                color: #333333;
+            }
+        }
+    }    
 }
 
 .header-right {
     width: 20%;
     float: left;
+
+    .btn-cart {
+        float: right;
+        width: 60%;
+        height: 56px;
+        border: none;
+    
+        img {
+            width: 37%;
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Small phones to small tablets: from 481 to 767px */
+
+@media only screen and (max-width: 767px) {
+    .header-left {
+        width: 50%;
+
+        .main-nav {
+            display: none;
+        }
+    }
+
+    .header-right {
+        width: 50%;
+
+        .btn-cart img {
+            max-height: 35px;
+        }
+    }
+}
+
+/* Small phones: from 0 to 480px */
+
+@media only screen and (max-width: 480px) {
+    
 }

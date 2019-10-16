@@ -55,8 +55,88 @@
 
         .btn-buy {
             width: 50%;
+
+            span {
+                display: none;
+            }
         }
     }
+}
 
+/* Small tablets to big tablets: from 768 to 1023px */
+
+@media only screen and (max-width: 1023px) {
+   .article-product-card {
+       width: 50%;
+
+        h3 {
+            height: 50px;
+        }
+
+       .product-photo {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 50%;
+            }
+
+            figcaption {
+                height: 135px;
+                margin-top: 0;
+            }
+       }
+
+        .product-price-container {
+            span {
+                display: none;
+            }
+
+            .btn-buy {
+                width: 100%;
+
+                span {
+                    display: inline;
+                }
+            }
+        }
+   }
+}
+
+/* Small phones to small tablets: from 481 to 767px */
+
+@media only screen and (max-width: 767px) {
     
+}
+
+/* Small phones: from 0 to 480px */
+
+@media only screen and (max-width: 480px) {
+    .article-product-card {
+        width: 100%;
+        padding: 15px 10px;
+
+        .product-photo {
+            display: flex;
+            align-items: end;
+
+            img {
+                width: 50%;
+            }
+
+            figcaption {
+                height: 110px;
+            }
+        }
+
+        .product-price-container {
+            margin-top: -55px;
+            justify-content: flex-end;
+
+            .btn-buy {
+                width: 50%;
+            }
+        }
+
+    }
 }

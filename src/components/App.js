@@ -28,9 +28,9 @@ export default class App extends Component {
             <Router>
                 <React.Fragment>
                     <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')}/>
-                    <MainRouter getCategories={this.getCategoryList} categoryList={categoryList} cart={cart}/>
+                    <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart}/>
                     <Footer />
-                    {showCart && <Cart showCart={this.showCart} cart={cart}/>}
+                    {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart}/>}
                 </React.Fragment>
             </Router>
         );
@@ -50,6 +50,10 @@ export default class App extends Component {
     }
 
     showCart = (val) => {
+        if(val && this.checkScreen()) {
+            window.location.href = '/#/cart';
+        }
+        
         this.setState({
             showCart: val
         });
@@ -78,5 +82,14 @@ export default class App extends Component {
             localStorage.clear();
             localStorage.setItem('cart', JSON.stringify(cart))
         })
+    }
+
+    checkScreen = () => {
+        let w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        windowWidth = w.innerWidth || e.clientWidth || g.clientWidth;
+        return windowWidth < 1025;
     }
 }

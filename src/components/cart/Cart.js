@@ -67,7 +67,9 @@ export default function Cart(props) {
                     </section>
                     <footer className={cart.length === 0 ? "empty-cart" : ""}>
                         {cart.length === 0 ? 
-                        <Link className="btn-full btn-shopping" to='/plp?id=all' onClick={() => props.showCart(false)}>Start Shopping</Link> : 
+                        <Link className="btn-full btn-shopping" to='/plp?id=all' onClick={() => {
+                            if(props.showCart)props.showCart(false)
+                        }}>Start Shopping</Link> : 
                         <>
                             <p>Promo code can be applied on payment page</p>
                             <button className="btn-full btn-checkout">
@@ -79,7 +81,6 @@ export default function Cart(props) {
                     </footer>
                 </section>
             </div>
-            
         </aside>
     )
 }

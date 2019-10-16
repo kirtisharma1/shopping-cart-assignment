@@ -44,7 +44,7 @@ export default function ProductCard(props){
             </figure>
             <div className='product-price-container'>
                 <span>MRP Rs.{product.price}</span>
-                <button className='btn-full btn-buy' onClick={addToCart}>Buy Now</button>
+                <button className='btn-full btn-buy' onClick={addToCart}>Buy Now <span>@ Rs.{product.price}</span></button>
             </div>
         </article>
     )
