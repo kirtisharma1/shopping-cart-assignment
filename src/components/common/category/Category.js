@@ -5,14 +5,14 @@ import './category.scss';
 export default function Category(props) {
     const category = props.details;
     return (
-        <article className={props.className + ' article-category clearfix row'}>
+        <article className={props.className + ' article-category clearfix row'} tabIndex="0" aria-label={category.name}>
             <div className="category-content">
-                <h3>{category.name}</h3>
-                <p>{category.description}</p>
+                <h1>{category.name}</h1>
+                <p tabIndex="0">{category.description}</p>
                 <Link to={{pathname : '/plp/'+ category.key, state: {id: category.id}}}>{category.name}</Link>
             </div>
             <div className="category-image">
-                <img src={category.imageUrl}></img>
+                <img src={category.imageUrl} alt="Category Image"></img>
             </div>
         </article>
     )

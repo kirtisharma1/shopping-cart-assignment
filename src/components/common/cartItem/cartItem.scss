@@ -6,7 +6,7 @@
     background-color: #ffffff;
 
     figure {
-        flex-basis: 20%;
+        flex: 0 1 20%;
         height: 80px;
 
         img {
@@ -17,7 +17,7 @@
     }
 
     .item-details {
-        flex-basis: 80%;
+        flex: 0 1 80%;
         padding-left: 5px;
 
         h3 {

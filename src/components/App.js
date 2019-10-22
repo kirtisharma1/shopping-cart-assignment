@@ -28,7 +28,9 @@ export default class App extends Component {
             <Router>
                 <React.Fragment>
                     <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')}/>
+                    <main>
                     <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart}/>
+                    </main>
                     <Footer />
                     {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart}/>}
                 </React.Fragment>

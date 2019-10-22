@@ -1,5 +1,13 @@
 $pinkColor: #CE0060;
 
+@mixin transition($property) {
+    -webkit-transition: $property;
+    -ms-transition: $property;
+    transition: $property;
+    -moz-transition: $property;
+    -o-transition: $property;
+}
+
 .header-main {
     height: 90px;
     box-shadow: 0 2px 2px #efefef;
@@ -20,6 +28,10 @@ $pinkColor: #CE0060;
     margin-top: 10px;
     height: 75px;
     vertical-align: top;
+}
+
+.header-logo-anchor:focus .header-logo {
+    // box-shadow: 0px 0px 5px 2px #61C5FA !important;
 }
 
 .signup-nav {
@@ -64,7 +76,17 @@ svg {
                 // font-weight: 300;
                 text-decoration: none;
                 color: #333333;
+                @include transition(all 0.2s);
             }
+
+            a:focus {
+                border-bottom: 2px solid $pinkColor;
+                // box-shadow: 0px 0px 5px 2px #61C5FA !important;
+            }
+
+            // a:focus:not([data-focus-visible-added]) {
+            //     border-bottom: none;
+            //   }
         }
     }    
 }
@@ -78,11 +100,20 @@ svg {
         width: 60%;
         height: 56px;
         border: none;
+        @include transition(all 0.3s);
     
         img {
             width: 37%;
             vertical-align: middle;
         }
+
+        &:focus {
+            background-color: #aaaaaa;
+        }
+    }
+
+    a:focus {
+        border-bottom: 2px solid $pinkColor;
     }
 }
 

@@ -22,13 +22,13 @@ export default function PLP(props) {
     return (
         <section className='section-plp row section-main'>
             <div className='left-col-plp'>
-                <nav className='left-vertical-nav'>
+                <div className='left-vertical-nav'>
                     {categoryList.map(item => {
                         return (
-                            <Link key={item.key} to={{pathname : '/plp/'+ item.key, state: {id: item.id}}}>{item.name}</Link>
+                            <Link key={item.key} to={{pathname : '/plp/'+ item.key, state: {id: item.id}}} className={selectedCategory && item.id === selectedCategory.id ? 'selected': ''}>{item.name}</Link>
                         )
                     })}
-                </nav>
+                </div>
             </div>
             <Menu categoryList={categoryList}/>
             
@@ -44,13 +44,16 @@ function DropDown(props) {
         props.history.push(`/${e.target.value}`);
     }
     return (
-    <select className='dropdown-nav' onChange={onChange}>
-        {props.categoryList.map(item => {
-            return (
-                <option key={item.key} value={'plp/'+item.key}>{item.name}</option>
-            )
-        })}
-    </select>
+    <>
+        <label htmlFor='dropdown-nav'></label>
+        <select className='dropdown-nav' onChange={onChange} id='dropdown-nav'>
+            {props.categoryList.map(item => {
+                return (
+                    <option key={item.key} value={'plp/'+item.key}>{item.name}</option>
+                )
+            })}
+        </select>
+    </>
     );
 }
   

@@ -1,5 +1,13 @@
 $pinkColor: #CE0060;
 
+@mixin transition($property) {
+    -webkit-transition: $property;
+    -ms-transition: $property;
+    transition: $property;
+    -moz-transition: $property;
+    -o-transition: $property;
+}
+
 .section-plp {
     display: flex;
 
@@ -16,6 +24,16 @@ $pinkColor: #CE0060;
                 font-size: 75%;
                 padding: 15px 25px;
                 font-weight: 600;
+                @include transition(all 0.3s);
+
+                &.selected {
+                    color: #333333;
+                    font-size: 80%;
+                }
+                
+                &:focus {
+                    font-size: 80%;
+                }
             }
         }
     }

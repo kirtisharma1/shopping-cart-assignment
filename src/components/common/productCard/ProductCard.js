@@ -36,14 +36,14 @@ export default function ProductCard(props){
     }
 
     return (
-        <article className='article-product-card'>
+        <article className='article-product-card' tabIndex="0" aria-label={product.name}>
             <h3>{product.name}</h3>
             <figure className="product-photo">
                 <img src={product.imageURL} alt="Product Image"></img>
-                <figcaption><div>{product.description}</div></figcaption>
+                <figcaption tabIndex="0"><div>{product.description}</div></figcaption>
             </figure>
             <div className='product-price-container'>
-                <span>MRP Rs.{product.price}</span>
+                <span tabIndex="0">MRP Rs.{product.price}</span>
                 <button className='btn-full btn-buy' onClick={addToCart}>Buy Now <span>@ Rs.{product.price}</span></button>
             </div>
         </article>

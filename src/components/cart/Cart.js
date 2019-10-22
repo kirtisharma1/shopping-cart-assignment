@@ -48,8 +48,8 @@ export default function Cart(props) {
             <div className="row section-main">
                 <section className="section-cart">
                     <header className="header-cart">
-                        <p>My Cart</p>
-                        <i onClick={() => props.showCart(false)}>X</i>
+                        <p tabIndex="0">My Cart</p>
+                        <i  tabIndex="0" aria-label="Close Cart" onClick={() => props.showCart(false)}>X</i>
                     </header>
                     <section className={cart.length === 0 ? "empty-cart" : ""}>
                         {cart.map(item => {
