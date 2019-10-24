@@ -4,11 +4,11 @@ import MainRouter from './MainRouter';
 import Header from './common/header/Header';
 import Footer from './common/footer/Footer';
 import Cart from './cart/Cart';
-import EventEmitter from '../event';
-import { GET_CART, GET_CATEGORIES} from '../constants';
+import EventEmitter from '../utils/event';
+import { GET_CART, GET_CATEGORIES, URL_CART, KEY_CART, UPDATE_CART } from '../constants';
 
 import '../styles/reset.scss';
-import '../styles/common.scss';
+import '../styles/app.scss';
 
 export default class App extends Component {
     constructor(props) {
@@ -18,8 +18,7 @@ export default class App extends Component {
             showCart: false,
             cart: []
         }
-        // EventEmitter.addEventListener('getCart', this.get);
-        EventEmitter.addEventListener('updateCart', this.updateCart);
+        EventEmitter.addEventListener(UPDATE_CART, this.updateCart);
     }
     
     render() {
@@ -53,7 +52,7 @@ export default class App extends Component {
 
     showCart = (val) => {
         if(val && this.checkScreen()) {
-            window.location.href = '/#/cart';
+            window.location.href = URL_CART;
         }
         
         this.setState({
@@ -68,8 +67,7 @@ export default class App extends Component {
             cart
         }, () => {
             localStorage.clear();
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log('header getCart');
+            localStorage.setItem(KEY_CART, JSON.stringify(cart));
         }))
     }
 
@@ -82,7 +80,7 @@ export default class App extends Component {
             cart
         }, () => {
             localStorage.clear();
-            localStorage.setItem('cart', JSON.stringify(cart))
+            localStorage.setItem(KEY_CART, JSON.stringify(cart))
         })
     }
 

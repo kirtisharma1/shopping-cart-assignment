@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,600,700&display=swap');
+$pinkColor: #CE0060;
+$darkPink: #990047;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    background-color: #ffffff;
+    color: #555555;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h1 {
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.col-xs-6 {
+    width: 50%;
+    float: left;
+}
+
+.row {
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+footer {
+    background-color: #efefef;
+    padding: 15px 0;
+    font-size: 80%;
+}
+
+/* ------- Button ------- */
+
+.btn-full {
+    border: none;
+    height: 40px;
+    background-color: $pinkColor;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+}
+
+/* ------ Main Content ------ */
+
+.section-main {
+    padding-top: 90px;
+}
+
+.section-home {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Small tablets to big tablets: from 768 to 1023px */
+
+@media only screen and (max-width: 1023px) {
+   
+}
+
+/* Small phones to small tablets: from 481 to 767px */
+
+@media only screen and (max-width: 767px) {
+    
+}
+
+/* Small phones: from 0 to 480px */
+
+@media only screen and (max-width: 480px) {
+    
+}

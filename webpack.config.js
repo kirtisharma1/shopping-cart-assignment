@@ -19,6 +19,9 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
     },
+    resolve: {
+        modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    },
     module: {
         rules: [
             {

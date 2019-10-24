@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EventEmitter from '../../../event';
+import EventEmitter from '../../../utils/event';
 import './header.scss';
-import { LOGO } from './../../../constants';
+import { LOGO } from '../../../constants';
 
 const CART = require('../../../assets/images/cart.svg');
 

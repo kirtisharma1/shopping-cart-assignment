@@ -1,5 +1,5 @@
 import React from 'react';
-import EventEmitter from '../../../event';
+import EventEmitter from '../../../utils/event';
 import { ADD_TO_CART } from '../../../constants';
 import './productCard.scss';
 

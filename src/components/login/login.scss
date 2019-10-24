@@ -1,3 +1,5 @@
+@import './../../styles/common.scss';
+
 .section-login {
     width: 75%;
     margin: 0 auto;
@@ -36,11 +38,19 @@
                 border-bottom: 2px solid #dddddd;
                 width: 60%;
                 height: 45px;
+
+                &:focus {
+                    border-bottom: 2px solid $pinkColor;
+                }
             }
         }
     
         .btn-login {
             width: 60%;
+
+            &:focus {
+                background-color: $darkPink;
+            }
         }
     }
 }

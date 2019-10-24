@@ -24,6 +24,15 @@ server.post('/addtocart', (req, res) => {
     res.end('true');
 });
 
+server.post('/login', (req, res) => {
+    try {
+        fs.writeFileSync('server/login/index.post.json', JSON.stringify(req.body));
+    } catch(err) {
+        console.error(err);
+    }
+    res.end('true');
+});
+
 server.get('/api/categories', (req, res) => {
     const categories = require("./server/categories/index.get.json");
     categories.sort((a, b) => {
@@ -68,6 +77,6 @@ server.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
-server.listen(8080, () => {
+server.listen(3000, () => {
     console.log("server is listening");
 });

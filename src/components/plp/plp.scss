@@ -1,12 +1,4 @@
-$pinkColor: #CE0060;
-
-@mixin transition($property) {
-    -webkit-transition: $property;
-    -ms-transition: $property;
-    transition: $property;
-    -moz-transition: $property;
-    -o-transition: $property;
-}
+@import './../../styles/common.scss';
 
 .section-plp {
     display: flex;

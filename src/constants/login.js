@@ -1,0 +1,11 @@
+export const LOGIN_LABEL = 'Login';
+export const SIGNUP_LABEL = 'Signup';
+export const LOGIN_MESSAGE = 'Get access to your Orders. Wishlist and Recommendations';
+export const SIGNUP_MESSAGE = 'We do not share your personal details with anyone';
+export const LOGIN_TEXT_ARIA_LABEL = 'Login text';
+export const LOGIN_FORM_ARIA_LABEL = 'Login/Registration Form';
+export const FIRST_NAME = 'First Name';
+export const LAST_NAME = 'Last Name';
+export const EMAIL = 'Email';
+export const PASSWORD = 'Password';
+export const CONFIRM_PASSWORD = 'Confirm Password';

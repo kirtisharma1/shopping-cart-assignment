@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../common/cartItem/CartItem';
-import EventEmitter from '../../event';
+import EventEmitter from '../../utils/event';
 
 import { ADD_TO_CART, LOWEST_PRICE } from '../../constants';
 import './cart.scss';
