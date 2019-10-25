@@ -1,4 +1,4 @@
-$darkPink: #990047;
+@import '../../../styles/common.scss';
 
 .article-product-card {
     width: 25%;
@@ -150,3 +150,41 @@ $darkPink: #990047;
 
     }
 }
+
+// @include tablet {
+//     .article-product-card {
+//         width: 50%;
+ 
+//          h3 {
+//              height: 50px;
+//          }
+ 
+//         .product-photo {
+//              display: flex;
+//              align-items: center;
+ 
+//              img {
+//                  width: 50%;
+//              }
+ 
+//              figcaption {
+//                  height: 135px;
+//                  margin-top: 0;
+//              }
+//         }
+ 
+//          .product-price-container {
+//              span {
+//                  display: none;
+//              }
+ 
+//              .btn-buy {
+//                  width: 100%;
+ 
+//                  span {
+//                      display: inline;
+//                  }
+//              }
+//          }
+//     }
+// }

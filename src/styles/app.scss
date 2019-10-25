@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:400,600,700&display=swap');
+@import './media.scss';
+
 $pinkColor: #CE0060;
 $darkPink: #990047;
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 *:focus {
@@ -13,10 +17,14 @@ $darkPink: #990047;
 }
 
 html {
+    font-size: 16px;
+}
+
+body {
     background-color: #ffffff;
     color: #555555;
     font-family: 'Dosis', sans-serif;
-    font-size: 20px;
+    box-sizing: border-box;
     font-weight: 300;
     text-rendering: optimizeLegibility;
 }
@@ -33,11 +41,6 @@ html {
 h1 {
     font-size: 150%;
     font-weight: 700;
-}
-
-.col-xs-6 {
-    width: 50%;
-    float: left;
 }
 
 .row {
@@ -66,7 +69,7 @@ footer {
 /* ------ Main Content ------ */
 
 .section-main {
-    padding-top: 90px;
+    padding-top: 70px;
 }
 
 .section-home {
@@ -74,20 +77,12 @@ footer {
     flex-direction: column;
 }
 
-/* Small tablets to big tablets: from 768 to 1023px */
+@include tablet {
+    html {
+        font-size: 20px;
+    }
 
-@media only screen and (max-width: 1023px) {
-   
-}
-
-/* Small phones to small tablets: from 481 to 767px */
-
-@media only screen and (max-width: 767px) {
-    
-}
-
-/* Small phones: from 0 to 480px */
-
-@media only screen and (max-width: 480px) {
-    
+    .section-main {
+        padding-top: 90px;
+    }
 }

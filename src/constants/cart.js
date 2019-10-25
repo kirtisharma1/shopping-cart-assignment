@@ -1,0 +1,12 @@
+export const LOWEST_PRICE_IMG = 'https://res.cloudinary.com/dimyprxpl/image/upload/v1571044583/shopping/lowest-price.png';
+export const CART_TITLE = 'My Cart';
+export const EMPTY_CART_TEXT_LINE1 = 'No items in your cart';
+export const EMPTY_CART_TEXT_LINE2 = 'Your favourite items are just a click away';
+export const LOWEST_PRICE_TEXT = "You won't find it cheaper anywhere";
+export const LOWEST_PRICE_IMG_ALT = 'Lowest Price Image';
+export const EMPTY_CART_BUTTON_TEXT = 'Start Shopping';
+export const PROMO_CODE_TEXT = 'Promo code can be applied on payment page';
+export const CHECKOUT_BUTTON_TEXT = 'Proceed to Checkout';
+export const ADD_ITEM_TO_CART_ARIA_LABEL = 'Add one to total quantity';
+export const SUBTRACT_ITEM_FROM_CART_ARIA_LABEL = 'Subtract one from total quantity';
+export const CLOSE_CART_ARIA_LABEL = 'Close Cart';

@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../common/cartItem/CartItem';
 import EventEmitter from '../../utils/event';
-
-import { ADD_TO_CART, LOWEST_PRICE } from '../../constants';
+import { ADD_TO_CART, UPDATE_CART, CURRENCY } from '../../constants';
+import * as const_cart from '../../constants/cart';
 import './cart.scss';
 
 export default function Cart(props) {
@@ -36,11 +36,10 @@ export default function Cart(props) {
             }).then(res => res.json())
             .then(res => {
                 if(res){
-                    EventEmitter.emitEvent('updateCart', cart)
+                    EventEmitter.emitEvent(UPDATE_CART, cart)
                 }
             });
         }
-        
     }
 
     return(
@@ -48,8 +47,8 @@ export default function Cart(props) {
             <div className="row section-main">
                 <section className="section-cart">
                     <header className="header-cart">
-                        <p tabIndex="0">My Cart</p>
-                        <i  tabIndex="0" aria-label="Close Cart" onClick={() => props.showCart(false)}>X</i>
+                        <p tabIndex="0">{const_cart.CART_TITLE}</p>
+                        <i  tabIndex="0" aria-label={const_cart.CLOSE_CART_ARIA_LABEL} onClick={() => props.showCart(false)}>X</i>
                     </header>
                     <section className={cart.length === 0 ? "empty-cart" : ""}>
                         {cart.map(item => {
@@ -58,23 +57,23 @@ export default function Cart(props) {
                             )
                         })}
                         {cart.length === 0 ? <div>
-                            <p>No items in your cart</p>
-                            <p>Your favourite items are just a click away</p>
+                            <p>{const_cart.EMPTY_CART_TEXT_LINE1}</p>
+                            <p>{const_cart.EMPTY_CART_TEXT_LINE2}</p>
                         </div> : <div className="lowest-price">
-                            <img src={LOWEST_PRICE} alt="Lowest Price Image"></img>
-                            <span>You won't find it cheaper anywhere</span>
+                            <img src={const_cart.LOWEST_PRICE_IMG} alt={const_cart.LOWEST_PRICE_IMG_ALT}></img>
+                            <span>{const_cart.LOWEST_PRICE_TEXT}</span>
                         </div>}
                     </section>
                     <footer className={cart.length === 0 ? "empty-cart" : ""}>
                         {cart.length === 0 ? 
                         <Link className="btn-full btn-shopping" to='/plp?id=all' onClick={() => {
                             if(props.showCart)props.showCart(false)
-                        }}>Start Shopping</Link> : 
+                        }}>{const_cart.EMPTY_CART_BUTTON_TEXT}</Link> : 
                         <>
-                            <p>Promo code can be applied on payment page</p>
+                            <p>{const_cart.PROMO_CODE_TEXT}</p>
                             <button className="btn-full btn-checkout">
-                                <span>Proceed to Checkout</span>
-                                <span>Rs.{cart.reduce((a, b) => a + (b['price'] * b['quantity'] || 0), 0)} &ensp;&gt;</span>    
+                                <span>{const_cart.CHECKOUT_BUTTON_TEXT}</span>
+                                <span>{CURRENCY + cart.reduce((a, b) => a + (b['price'] * b['quantity'] || 0), 0)} &ensp;&gt;</span>    
                             </button>
                         </>
                         }

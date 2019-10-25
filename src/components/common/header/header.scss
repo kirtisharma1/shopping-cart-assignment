@@ -1,7 +1,7 @@
 @import './../../../styles/common.scss';
 
-.header-main {
-    height: 90px;
+.header {
+    height: 70px;
     box-shadow: 0 2px 2px #efefef;
     position: fixed;
     top: 0;
@@ -12,125 +12,136 @@
     nav {
         display: flex;
     }
-}
 
-
-.header-logo {
-    display: inline-block;
-    margin-top: 10px;
-    height: 75px;
-    vertical-align: top;
-}
-
-.header-logo-anchor:focus .header-logo {
-    // box-shadow: 0px 0px 5px 2px #61C5FA !important;
-}
-
-.signup-nav {
-    display: inline-block;
-    width: 65%;
-    padding: 10px 0;
-    float: right;
-    font-size: 70%;
-
-    li {
+    &__logo {
         display: inline-block;
-        text-align: right;
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 50px;
+        vertical-align: top;
+    }
 
-        a{
-            text-decoration: none;
-            color: #333333;
+    &__left {
+        width: 50%;
+        float: left;
+
+        &__main-nav {
+            display: none;
+        
+            li {
+                display: inline-block;
+        
+                a:link,
+                a:visited{
+                    padding: 10px 30px;
+                    text-decoration: none;
+                    color: #333333;
+                    @include transition(all 0.2s);
+                }
+
+                a:focus {
+                    border-bottom: 2px solid $pinkColor;
+                }
+            }
+        }    
+    }
+
+    &__right {
+        width: 50%;
+        float: left;
+    
+        &__signup-nav {
+            display: inline-flex;
+            justify-content: space-around;
+            width: 60%;
+            padding: 7px 0;
+            float: right;
+            font-size: 70%;
+        
+            li {
+                display: inline-block;
+                text-align: right;
+        
+                a{
+                    text-decoration: none;
+                    color: #333333;
+                }
+            }
+        }
+    
+        .btn-cart {
+            float: right;
+            width: 60%;
+            height: 45px;
+            border: none;
+            @include transition(all 0.3s);
+        
+            img {
+                width: 37%;
+                max-height: 35px;
+                vertical-align: middle;
+            }
+    
+            &:focus {
+                background-color: #aaaaaa;
+            }
+        }
+    
+        a:focus {
+            border-bottom: 2px solid $pinkColor;
         }
     }
 }
-
-
 
 svg {
     fill: $pinkColor;
 }
 
-.header-left {
-    width: 80%;
-    float: left;
+@include tablet {
+    .header {
+        height: 90px;
 
-    .main-nav {
-        display: inline-block;
-        margin: 50px 40px 0;
-        width: 200px;
-    
-        li {
-            display: inline-block;
-    
-            a:link,
-            a:visited{
-                padding: 10px 30px;
-                // font-weight: 300;
-                text-decoration: none;
-                color: #333333;
-                @include transition(all 0.2s);
+        &__logo {
+            height: 75px;
+            margin-left: 0px;
+        }
+
+        &__left {
+            width: 70%;
+
+            &__main-nav {
+                display: inline-flex;
+                margin: 50px 40px 0;
+                width: 200px;
             }
+        }
 
-            a:focus {
-                border-bottom: 2px solid $pinkColor;
-                // box-shadow: 0px 0px 5px 2px #61C5FA !important;
+        &__right {
+            width: 30%;
+            
+            &__signup-nav {
+                padding: 10px 0;
             }
-
-            // a:focus:not([data-focus-visible-added]) {
-            //     border-bottom: none;
-            //   }
-        }
-    }    
-}
-
-.header-right {
-    width: 20%;
-    float: left;
-
-    .btn-cart {
-        float: right;
-        width: 60%;
-        height: 56px;
-        border: none;
-        @include transition(all 0.3s);
     
-        img {
-            width: 37%;
-            vertical-align: middle;
-        }
-
-        &:focus {
-            background-color: #aaaaaa;
-        }
-    }
-
-    a:focus {
-        border-bottom: 2px solid $pinkColor;
-    }
-}
-
-/* Small phones to small tablets: from 481 to 767px */
-
-@media only screen and (max-width: 767px) {
-    .header-left {
-        width: 50%;
-
-        .main-nav {
-            display: none;
-        }
-    }
-
-    .header-right {
-        width: 50%;
-
-        .btn-cart img {
-            max-height: 35px;
+            .btn-cart {
+                height: 55px;
+            }
         }
     }
 }
 
-/* Small phones: from 0 to 480px */
+@include desktop {
+    .header {
+        &__left {
+            width: 80%;
+        }
 
-@media only screen and (max-width: 480px) {
-    
+        &__right {
+            width: 20%;
+
+            .btn-cart img {
+                max-height: 55px;
+            }
+        }
+    }
 }

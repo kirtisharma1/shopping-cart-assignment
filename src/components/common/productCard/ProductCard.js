@@ -1,6 +1,6 @@
 import React from 'react';
 import EventEmitter from '../../../utils/event';
-import { ADD_TO_CART } from '../../../constants';
+import { ADD_TO_CART, UPDATE_CART, CURRENCY, PRICE_PREFIX, BUY_BUTTON_TEXT } from '../../../constants';
 import './productCard.scss';
 
 export default function ProductCard(props){
@@ -30,7 +30,7 @@ export default function ProductCard(props){
         }).then(res => res.json())
         .then(res => {
             if(res){
-                EventEmitter.emitEvent('updateCart', cart)
+                EventEmitter.emitEvent(UPDATE_CART, cart)
             }
         });
     }
@@ -43,8 +43,8 @@ export default function ProductCard(props){
                 <figcaption tabIndex="0"><div>{product.description}</div></figcaption>
             </figure>
             <div className='product-price-container'>
-                <span tabIndex="0">MRP Rs.{product.price}</span>
-                <button className='btn-full btn-buy' onClick={addToCart}>Buy Now <span>@ Rs.{product.price}</span></button>
+                <span tabIndex="0">{PRICE_PREFIX + ' ' + CURRENCY + product.price}</span>
+                <button className='btn-full btn-buy' onClick={addToCart}>{BUY_BUTTON_TEXT} <span>@ {CURRENCY + product.price}</span></button>
             </div>
         </article>
     )
