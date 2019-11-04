@@ -77,6 +77,6 @@ server.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
-server.listen(3000, () => {
+server.listen(8080, () => {
     console.log("server is listening");
 });

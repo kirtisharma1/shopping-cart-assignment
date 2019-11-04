@@ -10,3 +10,4 @@ export const CHECKOUT_BUTTON_TEXT = 'Proceed to Checkout';
 export const ADD_ITEM_TO_CART_ARIA_LABEL = 'Add one to total quantity';
 export const SUBTRACT_ITEM_FROM_CART_ARIA_LABEL = 'Subtract one from total quantity';
 export const CLOSE_CART_ARIA_LABEL = 'Close Cart';
+export const KEY_CART = 'cart';

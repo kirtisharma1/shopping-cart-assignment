@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Category from './../common/category/Category';
-import Carousel from './../carousel/Carousel';
-import { GET_BANNERS } from '../../constants';
+import Category from '../../molecules/category/Category';
+import Carousel from '../../molecules/carousel/Carousel';
+import { GET_BANNERS, HOME_PAGE_ARIA_LABEL } from '../../../constants';
 
 export default function Home(props) {
     const categoryList = props.categoryList;
@@ -18,12 +18,8 @@ export default function Home(props) {
     }
 
     return (
-        <section className='section-main section-home'>
+        <section className='section-main section-home' tabIndex="0" aria-label={HOME_PAGE_ARIA_LABEL}>
             <Carousel banners={banners}/>
-        {/* <section className='section-main'>
-            <div>
-                Carousal
-            </div> */}
             {categoryList.map((category, i) => {
                 return (
                     <Category key={category.key} details={category} className={i%2 ? 'even' : 'odd'}/>

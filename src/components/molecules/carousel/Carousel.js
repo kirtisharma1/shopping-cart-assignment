@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import * as const_home from '../../constants/home';
+import * as const_home from '../../../constants/home';
 import './carousel.scss';
 
 export default function Carousel(props) {
@@ -32,20 +32,20 @@ export default function Carousel(props) {
 
     return (
         <>
-            <section className="slideshow-container row">
+            <section className="slideshow row" aria-label={const_home.CAROUSEL_ARIA_LABEL} tabIndex="0">
                 {banners.map(banner => {
                     return (
-                        <div className={"my-slides " + (currentBanner.id ? banner.id === currentBanner.id ? " selected" : '' : banner.order === 1 ? " selected" : '')} key={banner.id}>
+                        <div className={"slideshow__slides" + (currentBanner.id ? banner.id === currentBanner.id ? "--selected" : '' : banner.order === 1 ? "--selected" : '')} key={banner.id}>
                             <img src={banner.bannerImageUrl} alt={banner.bannerImageAlt}/>
                         </div>
                     )
                 })}
-                <button className="prev" tabIndex="0" onClick={() => setBanner('prev')}>{const_home.PREV_LABEL}</button>
-                <button className="next" tabIndex="0" onClick={() => setBanner('next')}>{const_home.NEXT_LABEL}</button>
-                <div className="dots-container">
+                <button aria-label={const_home.PREV_BUTTON_ARIA_LABEL} className="slideshow__prev" tabIndex="0" onClick={() => setBanner('prev')}>{const_home.PREV_LABEL}</button>
+                <button aria-label={const_home.NEXT_BUTTON_ARIA_LABEL} className="slideshow__next" tabIndex="0" onClick={() => setBanner('next')}>{const_home.NEXT_LABEL}</button>
+                <div className="slideshow__dots-container">
                     {banners.map(banner => {
                         return (
-                            <span key={banner.id} className={"dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)}></span> 
+                            <span key={banner.id} className={"slideshow__dots-container__dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)}></span> 
                         )
                     })}
                 </div>

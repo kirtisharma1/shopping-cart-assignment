@@ -1,16 +1,16 @@
-@import './../../styles/common.scss';
+@import '../../../styles/common.scss';
 
-.section-login {
+.login {
     width: 100%;
     margin: 0 auto;
 
 
-    .left-col-login, .right-col-login {
+    &__left-col, &__right-col {
         float: left;
         padding: 25px;
     }
     
-    .left-col-login {
+    &__left-col {
 
         p {
             margin-top: 20px;
@@ -19,7 +19,7 @@
         }
     }
     
-    .right-col-login {
+    &__right-col {
         width: 100%;
     
         div{
@@ -43,8 +43,9 @@
             }
         }
     
-        .btn-login {
+        &__btn {
             width: 100%;
+            height: 40px;
 
             &:focus {
                 background-color: $darkPink;
@@ -54,14 +55,14 @@
 }
 
 @include tablet {
-    .section-login {
+    .login {
         width: 75%;    
     
-        .left-col-login, .right-col-login {
+        &__left-col, &__right-col {
             padding: 20px 40px;
         }
         
-        .left-col-login {
+        &__left-col {
             width: 40%;
             padding: 75px 40px;
     
@@ -70,7 +71,7 @@
             }
         }
         
-        .right-col-login {
+        &__right-col {
             width: 60%;
         
             div{
@@ -83,7 +84,7 @@
                 }
             }
         
-            .btn-login {
+            &__btn {
                 width: 60%;
             }
         }
@@ -91,7 +92,7 @@
 }
 
 @include desktop {
-    .section-login .right-col-login div {
+    .login__right-col div {
         input[type = text],
         input[type = email], 
         input[type = password] {

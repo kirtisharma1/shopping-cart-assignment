@@ -1,0 +1,87 @@
+@import '../../../styles/common.scss';
+
+.slideshow {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+
+  &__slides {
+    display: none;
+
+    &--selected {
+        display: block;
+
+        img {
+          vertical-align: middle;
+          width: 100%;
+          box-shadow: 0px 34px 22px -40px #000000;
+      }
+    }
+  }
+
+  &__prev, &__next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 60%;
+    user-select: none;
+    border: none;
+    background-color: rgba(0,0,0,0.4);
+    @include transform(translate(0, -50%));
+    @include transition(0.6s ease);
+
+    &:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+
+  &__next {
+    right: 0;
+  }
+
+  &__dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+    &__dot {
+        cursor: pointer;
+        height: 7px;
+        width: 7px;
+        margin: 0 2%;
+        background-color: #bbb;
+        display: inline-block;
+        @include border-radius(50%);
+        @include transition(background-color 0.6s ease);
+
+        &.active, &:hover {
+          background-color: #717171;
+        }
+    }
+  }
+}
+
+@include tablet {
+  .slideshow {
+    &__slides {
+      &--selected {
+        img {
+          box-shadow: 0px 25px 35px -45px #000000;
+        }
+      }
+    }
+
+    &__dots-container {
+      margin-top: -30px; 
+        
+      &__dot {
+          height: 8px;
+          width: 8px;
+          margin: 0 1%;
+      }
+    }
+  }
+}

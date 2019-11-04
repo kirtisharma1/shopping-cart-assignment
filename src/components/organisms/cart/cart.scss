@@ -1,13 +1,13 @@
-@import '../../styles/common.scss';
+@import '../../../styles/common.scss';
 
 .cart-container {
     .section-main {
         background-color: #efefef;
 
-        .section-cart {
+        .cart {
             width: 100%;
     
-            .header-cart {
+            &__header {
                 display: flex;
                 justify-content: space-between;
                 background-color: #ffffff;
@@ -21,12 +21,12 @@
                 }
             }
     
-            section {
+            &__body {
                 background-color: #efefef;
                 padding-bottom: 90px;
                 min-height: 66vh;
     
-                &.empty-cart {
+                &--empty {
                     background-color: #ffffff;
                     display: flex;
                     align-items: center;
@@ -46,7 +46,7 @@
                     }
                 }
     
-                .lowest-price {
+                &__lowest-price {
                     display: flex;
                     align-items: center;
                     background-color: #ffffff;
@@ -91,6 +91,7 @@
                 .btn-shopping {
                     display: block;
                     margin: 0 auto;
+                    height: 40px;
                     width: 95%;
                     text-decoration: none;
                     padding: 11px;
@@ -110,8 +111,8 @@
 @include tablet {
     .cart-container {
         .section-main {           
-            .section-cart {
-                section {
+            .cart {
+                &__body {
                     min-height: 73vh;
                 }
             }
@@ -134,11 +135,11 @@
         .section-main {
             background: transparent;
             
-            .section-cart {
+            .cart {
                 width: 50%;
                 float: right;
         
-                .header-cart {
+                &__header {
                     background-color: #333333;
                     color: #ffffff;
                     margin-top: 0;
@@ -149,12 +150,12 @@
                     }
                 }
         
-                section {
+                &__body {
                     height: 500px;
                     min-height: 500px;
                     overflow: auto;
         
-                    &.empty-cart {
+                    &--empty {
                         background-color: #ffffff;
                         display: flex;
                         align-items: center;
@@ -174,7 +175,7 @@
                         }
                     }
         
-                    .lowest-price {
+                    &__lowest-price {
                         display: flex;
                         align-items: center;
                         background-color: #ffffff;

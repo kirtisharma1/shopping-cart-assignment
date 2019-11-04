@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../common/productCard/ProductCard';
-import { GET_PRODUCTS } from '../../constants';
+import ProductCard from '../../molecules/productCard/ProductCard';
+import { GET_PRODUCTS } from '../../../constants';
 
 export default function ProductList(props) {
     const [productList, setProductList] = useState([]);

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { HashRouter  as Router, Switch, Route, Link } from "react-router-dom";
 import MainRouter from './MainRouter';
-import Header from './common/header/Header';
-import Footer from './common/footer/Footer';
-import Cart from './cart/Cart';
+import Header from './organisms/header/Header';
+import Footer from './organisms/footer/Footer';
+import Cart from './organisms/cart/Cart';
 import EventEmitter from '../utils/event';
 import { GET_CART, GET_CATEGORIES, URL_CART, KEY_CART, UPDATE_CART } from '../constants';
 
 import '../styles/reset.scss';
-import '../styles/app.scss';
+import '../styles/theme.scss';
 
 export default class App extends Component {
     constructor(props) {

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Switch, Route, Link } from "react-router-dom";
-import Login from './login/Login';
-import Home from './home/Home';
-import PLP from './plp/PLP';
-import Cart from './cart/Cart';
+import Login from './organisms/login/Login';
+import Home from './organisms/home/Home';
+import PLP from './organisms/plp/PLP';
+import Cart from './organisms/cart/Cart';
 
 export default function MainRouter(props) {
     const categoryList = props.categoryList;
