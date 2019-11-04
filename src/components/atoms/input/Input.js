@@ -6,19 +6,19 @@ export default function InputComponent(props) {
   } = props;
 
   return (
-      <div>
-          <label htmlFor={type}></label>
-          <input type={type} 
-              aria-label={placeholder || ''} 
-              placeholder={placeholder || ''} 
-              id={name} 
-              required 
-              className={className || ''} 
-              defaultValue={value || ''}
-              onChange={onChange && onChange}
-              name={name || ''}
-              pattern={pattern || '.*'}
-              title={title && title}/>
-      </div>
+    <div>
+      <label htmlFor={type}></label>
+      <input type={type}
+        aria-label={placeholder || ''}
+        placeholder={placeholder || ''}
+        id={name}
+        required
+        className={className || ''}
+        defaultValue={value || ''}
+        onChange={onChange && onChange}
+        name={name || ''}
+        pattern={pattern || '.*'}
+        title={title && title} />
+    </div>
   )
 }

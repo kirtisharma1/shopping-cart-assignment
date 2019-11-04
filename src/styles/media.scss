@@ -4,26 +4,26 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 
 @mixin phone {
-    @media only screen and (min-width: #{$phone-width}) {
-        @content;
-    }
+  @media only screen and (min-width: #{$phone-width}) {
+    @content;
+  }
 }
 
 @mixin phoneLarge {
   @media only screen and (min-width: #{$phone-width}) {
-      @content;
+    @content;
   }
 }
 
 @mixin tablet {
-    @media only screen and (min-width: #{$tablet-width}) {
-        @content;
-    }
+  @media only screen and (min-width: #{$tablet-width}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media only screen and (min-width: #{$desktop-width}) {
-        @content;
-    }
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
 }
 
