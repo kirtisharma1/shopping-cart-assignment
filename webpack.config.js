@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         app: path.resolve(__dirname, 'src') + '/index.js',
     },
@@ -26,17 +27,16 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.s[ac]ss$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  'css-loader',
+                  'sass-loader',
                 ]
             },
             {
@@ -68,6 +68,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Sabka Bazaar',
             template: 'index.html'
-        })
+        }),
+        new MiniCssExtractPlugin({
+          filename: '[name].css',
+          chunkFilename: '[id].css',
+          ignoreOrder: false, 
+        }),
     ]
 }

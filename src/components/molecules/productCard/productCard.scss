@@ -34,6 +34,7 @@
                 width: 100%;
                 padding-right: 30px;
                 height: 100%;
+                font-size: 120%;
             }
 
             &:focus {
@@ -93,6 +94,9 @@
 
             figcaption {
                 height: 135px;
+                div {
+                  font-size: 100%;
+                }
             }
         }
 

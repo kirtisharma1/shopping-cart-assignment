@@ -1,12 +1,14 @@
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-
 const config = require('./webpack.config');
+const compression = require('compression');
 const compiler = webpack(config);
 const fs = require('fs');
 const server = express();
 const bodyParser = require("body-parser");
+
+server.use(compression());
 
 server.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
