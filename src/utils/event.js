@@ -7,6 +7,9 @@ const EventEmitter = {
     addEventListener: function (event, callback) {
       if (!this.events[event])  this.events[event] = [];
       this.events[event].push(callback);
+    },
+    removeEventListener: function (event, callback) {
+      delete this.events[event]
     }
 }
 

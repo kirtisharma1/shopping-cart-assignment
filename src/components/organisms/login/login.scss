@@ -7,14 +7,14 @@
 
     &__left-col, &__right-col {
         float: left;
-        padding: 25px;
+        padding: 2.5rem;
     }
     
     &__left-col {
 
         p {
-            margin-top: 20px;
-            font-size: 75%;
+            margin-top: 2rem;
+            font-size: 1.2rem;
             line-height: 145%;
         }
     }
@@ -23,7 +23,7 @@
         width: 100%;
     
         div{
-            margin: 25px 0;
+            margin: 2.5rem 0;
     
             label {
                 display: block;
@@ -33,23 +33,19 @@
             input[type = email], 
             input[type = password] {
                 border: none;
-                border-bottom: 2px solid #dddddd;
+                border-bottom: .2rem solid #dddddd;
                 width: 100%;
-                height: 45px;
+                height: 4.5rem;
 
                 &:focus {
-                    border-bottom: 2px solid $pinkColor;
+                    border-bottom: .2rem solid $pinkColor;
                 }
             }
         }
     
         &__btn {
             width: 100%;
-            height: 40px;
-
-            &:focus {
-                background-color: $darkPink;
-            }
+            height: 4rem;
         }
     }
 }
@@ -59,15 +55,15 @@
         width: 75%;    
     
         &__left-col, &__right-col {
-            padding: 20px 40px;
+            padding: 2rem 4rem;
         }
         
         &__left-col {
             width: 40%;
-            padding: 75px 40px;
+            padding: 7.5rem 4rem;
     
             p {
-                font-size: 65%;
+                font-size: 1.2rem;
             }
         }
         
@@ -75,7 +71,7 @@
             width: 60%;
         
             div{
-                margin: 25px 0;
+                margin: 2.5rem 0;
         
                 input[type = text],
                 input[type = email], 

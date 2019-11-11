@@ -1,38 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
-import { LOGO } from '../../../constants';
+import { MENU } from '../../../constants';
+import { LOGO, LOGO_2X, HOME, PRODUCTS, SIGNIN, REGISTER } from '../../../constants/header';
 
 const CART = require('../../../assets/images/cart.svg');
 
 export default function Header(props) {
-  let { cartLength, showCart } = props;
+  const { cartLength, showCart } = props;
+  const showMobileNav = () => {
+    document.getElementById("nav_mobile").style.width = "100%";
+  };
 
   return (
     <header className="header">
-      <nav>
-        <div className="row">
-          <div className="header__left">
-            <a href='#' className="header__logo--anchor">
+      <nav className="row header__nav">
+        <div className="header__left">
+          <a href='#'>
+            <picture>
+              <source srcSet={LOGO_2X} media="(min-width: 768px)" />
               <img src={LOGO} className="header__logo" alt="Brand Logo" />
-            </a>
-            <ul className="header__left__main-nav" aria-label="Main Navigation">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/plp/all">Products</Link></li>
-            </ul>
-          </div>
-          <div className="header__right">
-            <ul className="header__right__signup-nav" aria-label="Login/Registration Navigation">
-              <li><Link to="/login">SignIn</Link></li>
-              <li><Link to="/registration">Register</Link></li>
-            </ul>
-            <button type="button" className="btn-cart" onClick={() => showCart(true)}>
-              <img src={CART} alt="Cart icon"></img>
-              {cartLength} item{cartLength === 1 ? '' : 's'}
-            </button>
-          </div>
+            </picture>
+          </a>
+          <ul className="header__left__main-nav" aria-label="Main Navigation">
+            <li><Link to="/">{HOME}</Link></li>
+            <li><Link to="/plp/all">{PRODUCTS}</Link></li>
+          </ul>
+        </div>
+        <div className="header__right">
+          <ul className="header__right__signup-nav" aria-label="Login/Registration Navigation">
+            <li><Link to="/login">{SIGNIN}</Link></li>
+            <li><Link to="/registration">{REGISTER}</Link></li>
+          </ul>
+          <button type="button" className="btn-cart" onClick={() => showCart(true)}>
+            <img src={CART} alt="Cart icon"></img>
+            {cartLength} item{cartLength === 1 ? '' : 's'}
+          </button>
         </div>
       </nav>
+      <div className="menu_mobile" onClick={showMobileNav}>&#9776; {MENU}</div>
     </header>
   )
 }

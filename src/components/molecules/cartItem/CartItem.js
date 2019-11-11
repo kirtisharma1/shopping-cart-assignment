@@ -6,7 +6,7 @@ import './cartItem.scss';
 export default function CartItem(props) {
   const { item, updateCart } = props;
   return (
-    <article className="cart-item" aria-label={item.name} tabIndex="0">
+    <li className="cart-item" aria-label={item.name}>
       <figure>
         <img src={item.imageURL} alt='Product Image'></img>
       </figure>
@@ -20,9 +20,9 @@ export default function CartItem(props) {
             <span>X</span>
             <span className="cart-item__details__price-quantity__price">{item.price}</span>
           </div>
-          <div className="cart-item__details__price-quantity__item-total">{CURRENCY + item.price * item.quantity}</div>
+          <div>{CURRENCY + item.price * item.quantity}</div>
         </div>
       </div>
-    </article>
+    </li>
   )
 }

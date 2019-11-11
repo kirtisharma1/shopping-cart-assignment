@@ -17,19 +17,17 @@ export default function PLP(props) {
   return (
     <section className='plp row section-main'>
       <div className='plp__left-col'>
-        <div className='plp__left-col__vertical-nav'>
           {categoryList.map(item => {
             return (
               <Link key={item.key} to={{ pathname: '/plp/' + item.key, state: { id: item.id } }} className={selectedCategory && item.id === selectedCategory.id ? 'selected' : ''}>{item.name}</Link>
             )
           })}
-        </div>
       </div>
       <Menu categoryList={categoryList} url='plp/' />
 
-      <div className='plp__right-col'>
+      <ul className='plp__right-col'>
         <ProductList cart={cart} category={selectedCategory} />
-      </div>
+      </ul>
     </section>
   )
 }

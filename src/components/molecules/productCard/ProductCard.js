@@ -32,20 +32,20 @@ export default function ProductCard(props) {
   }
 
   return (
-    <article className='product' tabIndex="0" aria-label={product.name}>
+    <li className='product' aria-label={product.name}>
       <h3>{product.name}</h3>
       <figure className="product__photo">
         <img src={product.imageURL} alt="Product Image"></img>
-        <figcaption tabIndex="0"><div>{product.description}</div></figcaption>
+        <figcaption ><div>{product.description}</div></figcaption>
       </figure>
       <div className='product__price'>
-        <span tabIndex="0">{PRICE_PREFIX + ' ' + CURRENCY + product.price}</span>
+        <span >{PRICE_PREFIX + ' ' + CURRENCY + product.price}</span>
         <button type="button" className='btn-full product__price__btn-buy' onClick={addToCart}>
           {BUY_BUTTON_TEXT}
           {' '}
           <span>@ {CURRENCY + product.price}</span>
         </button>
       </div>
-    </article>
+    </li>
   );
 }

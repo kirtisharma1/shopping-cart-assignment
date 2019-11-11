@@ -18,13 +18,13 @@ export default function Home(props) {
   }, []);
 
   return (
-    <section className='section-main section-home' tabIndex="0" aria-label={HOME_PAGE_ARIA_LABEL}>
+    <ul className='section-main section-home' aria-label={HOME_PAGE_ARIA_LABEL}>
       <Carousel banners={banners} />
       {categoryList.map((category, i) => {
         return (
           <Category key={category.key} details={category} className={i % 2 ? 'even' : 'odd'} />
         )
       })}
-    </section>
+    </ul>
   )
 }

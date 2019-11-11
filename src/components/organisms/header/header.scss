@@ -1,62 +1,57 @@
 @import './../../../styles/common.scss';
 
 .header {
-    height: 70px;
-    box-shadow: 0 2px 2px #efefef;
+    height: 7rem;
+    box-shadow: 0 .2rem .2rem #efefef;
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #ffffff;
     z-index: 2;
 
-    nav {
+    &__nav {
         display: flex;
     }
 
     &__logo {
         display: inline-block;
-        margin-top: 10px;
-        margin-left: 10px;
-        height: 50px;
+        margin-top: .5rem;
+        margin-left: .5rem;
+        height: 4rem;
         vertical-align: top;
     }
 
     &__left {
-        width: 50%;
-        float: left;
+        flex: 1;
 
         &__main-nav {
             display: none;
+            font-size: 2rem;
         
             li {
                 display: inline-block;
         
                 a:link,
                 a:visited{
-                    padding: 10px 30px;
+                    padding: 1rem 3rem;
                     text-decoration: none;
                     color: #333333;
                     @include transition(all 0.2s);
-                }
-
-                a:focus {
-                    border-bottom: 2px solid $pinkColor;
                 }
             }
         }    
     }
 
     &__right {
-        width: 50%;
-        float: left;
+        flex: 1;
     
         &__signup-nav {
-            display: inline-flex;
+            display: none;
             justify-content: space-around;
             width: 60%;
-            padding: 7px 0;
+            padding: .5rem 0;
             float: right;
-            font-size: 70%;
+            font-size: 1.2rem;
         
             li {
                 display: inline-block;
@@ -72,24 +67,23 @@
         .btn-cart {
             float: right;
             width: 60%;
-            height: 45px;
+            height: 5rem;
             border: none;
             @include transition(all 0.3s);
         
             img {
                 width: 37%;
-                max-height: 35px;
+                max-height: 3.5rem;
                 vertical-align: middle;
             }
-    
-            &:focus {
-                background-color: #aaaaaa;
-            }
         }
-    
-        a:focus {
-            border-bottom: 2px solid $pinkColor;
-        }
+    }
+
+    .menu_mobile {
+      background: #efefef;
+      padding: .5rem;
+      height: 3rem;
+      font-size: 1.5rem;
     }
 }
 
@@ -99,48 +93,58 @@ svg {
 
 @include tablet {
     .header {
-        height: 90px;
+        height: 9rem;
 
         &__logo {
-            height: 75px;
-            margin-left: 0px;
+            height: 7.5rem;
+            margin-left: 0;
         }
 
         &__left {
-            width: 70%;
+            flex: 7;
 
             &__main-nav {
                 display: inline-flex;
-                margin: 50px 40px 0;
-                width: 200px;
+                margin: 5rem 4rem 0;
+                width: 20rem;
             }
         }
 
         &__right {
-            width: 30%;
+            flex: 3;
             
             &__signup-nav {
-                padding: 10px 0;
+              display: inline-flex;
+                padding: 1rem 0;
             }
     
             .btn-cart {
-                height: 55px;
+                height: 5.5rem;
             }
         }
+
+        .menu_mobile {
+          background: #efefef;
+          padding: .5rem;
+        }
+        
+          .menu_mobile {
+            display: none;
+          }
     }
 }
 
 @include desktop {
     .header {
         &__left {
-            width: 80%;
+            flex: 4;
         }
 
         &__right {
-            width: 20%;
+            flex: 1;
 
             .btn-cart img {
-                max-height: 55px;
+                max-height: 5.5rem;
             }
         }
     }

@@ -2,7 +2,6 @@
 @import './media.scss';
 
 $pinkColor: #CE0060;
-$darkPink: #990047;
 
 *,
 *::after,
@@ -13,11 +12,11 @@ $darkPink: #990047;
 }
 
 *:focus {
-    outline: none;
+    // outline: none;
 }
 
 html {
-    font-size: 18px;
+    font-size: 62.5%;
 }
 
 body {
@@ -39,20 +38,24 @@ body {
 }
 
 h1 {
-    font-size: 150%;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 .row {
-    max-width: 1024px;
+    max-width: 102.4rem;
     margin: 0 auto;
     width: 100%;
 }
 
 footer {
     background-color: #efefef;
-    padding: 15px 0;
-    font-size: 80%;
+    padding: 1.5rem 0;
+    font-size: 1.3rem;
+}
+
+ul {
+  list-style: none;
 }
 
 /* ------- Button ------- */
@@ -68,20 +71,11 @@ footer {
 /* ------ Main Content ------ */
 
 .section-main {
-    padding-top: 70px;
+    padding-top: 9rem;
+    list-style: none;
 }
 
 .section-home {
     display: flex;
     flex-direction: column;
-}
-
-@include tablet {
-    html {
-        font-size: 20px;
-    }
-
-    .section-main {
-        padding-top: 90px;
-    }
 }

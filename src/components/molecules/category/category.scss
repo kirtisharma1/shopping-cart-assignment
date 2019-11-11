@@ -2,8 +2,8 @@
 
 .category {
     display: flex;
-    box-shadow: 0px 25px 35px -45px #000000;
-    padding: 20px 0;
+    box-shadow: 0rem 2.5rem 3.5rem -4.5rem #000000;
+    padding: 2rem 0;
     align-items: center;
 
     div {
@@ -11,54 +11,34 @@
         text-align: center;
     }
     
-    &.odd {
-        .category__image {
-            order: 1
-        }
-        .category__content {
-            order: 2;
-        }
-    }
-    &.even {
-        .category__image {
-            order: 2
-        }
-        .category__content {
-            order: 1
-        }
-    }
-
     &__content {
-        flex-basis: 70%;
-        padding: 30px 5px;
+        flex: 3;
+        padding: 3rem .5rem;
 
         h1 {
             font-weight: 700;
         }
 
         p {
-            margin-top: 15px;
+            margin-top: 1.5rem;
             line-height: 145%;
-            font-size: 67%;
+            font-size: 1.2rem;
         }
 
         a {
+            font-size: 1.5rem;
             display: inline-block;
-            height: 40px;
+            height: 4rem;
             background-color: $pinkColor;
             text-decoration: none;
             color: #ffffff;
-            padding: 10px;
-            margin-top: 25px;
-        
-            &:focus {
-                background-color: $darkPink;
-            }
+            padding: 1rem;
+            margin-top: 2.5rem;
         }
     }
 
     &__image {
-        flex-basis: 30%;
+        flex: 2;
 
         img {
             width: 100%;
@@ -68,14 +48,19 @@
 
 @include tablet {
     .category {
-        padding: 20px 15px;
+        padding: 2rem 1.5rem;
 
         &__content {
-            padding: 30px;
+          flex: 7;
+            padding: 3rem;
 
             p {
-                font-size: 75%;
+                font-size: 1.3rem;
             }
+        }
+
+        &__image {
+          flex: 3;
         }
     }
 }

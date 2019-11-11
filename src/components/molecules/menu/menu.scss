@@ -1,0 +1,37 @@
+@import '../../../styles/media.scss';
+
+.menu {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 0;
+  z-index: 99;
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: .5s;
+  &__content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+
+    a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 2rem;
+      
+      &:focus, &:hover { color: #ffffff; }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 3rem;
+  }
+}

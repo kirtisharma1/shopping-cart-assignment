@@ -4,10 +4,10 @@ import MainRouter from './MainRouter';
 import Header from './organisms/header/Header';
 import Footer from './organisms/footer/Footer';
 import Cart from './organisms/cart/Cart';
+import Menu from './molecules/menu/Menu';
 import EventEmitter from '../utils/event';
 import { GET_CART, GET_CATEGORIES, URL_CART, KEY_CART, UPDATE_CART } from '../constants';
 
-import '../styles/reset.scss';
 import '../styles/theme.scss';
 
 export default class App extends Component {
@@ -19,22 +19,6 @@ export default class App extends Component {
       cart: []
     }
     EventEmitter.addEventListener(UPDATE_CART, this.updateCart);
-  }
-
-  render() {
-    const { categoryList, showCart, cart } = this.state;
-    return (
-      <Router>
-        <React.Fragment>
-          <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
-          <main>
-            <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
-          </main>
-          <Footer />
-          {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
-        </React.Fragment>
-      </Router>
-    );
   }
 
   componentDidMount() {
@@ -91,5 +75,26 @@ export default class App extends Component {
       g = d.getElementsByTagName('body')[0],
       windowWidth = w.innerWidth || e.clientWidth || g.clientWidth;
     return windowWidth < 1025;
+  }
+
+  componentWillUnmount() {
+    EventEmitter.removeEventListener(UPDATE_CART);
+  }
+
+  render() {
+    const { categoryList, showCart, cart } = this.state;
+    return (
+      <Router>
+        <React.Fragment>
+          <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
+          <main>
+            <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
+          </main>
+          <Footer />
+          <Menu />
+          {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
+        </React.Fragment>
+      </Router>
+    );
   }
 }

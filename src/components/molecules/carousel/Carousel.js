@@ -32,7 +32,7 @@ export default function Carousel(props) {
 
   return (
     <>
-      <section className="slideshow row" aria-label={constHome.CAROUSEL_ARIA_LABEL} tabIndex="0">
+      <li className="slideshow row" aria-label={constHome.CAROUSEL_ARIA_LABEL}>
         {banners.map(banner => {
           return (
             <div className={"slideshow__slides" + (currentBanner.id ? banner.id === currentBanner.id ? "--selected" : '' : banner.order === 1 ? "--selected" : '')} key={banner.id}>
@@ -40,16 +40,16 @@ export default function Carousel(props) {
             </div>
           )
         })}
-        <button aria-label={constHome.PREV_BUTTON_ARIA_LABEL} className="slideshow__prev" tabIndex="0" onClick={() => setBanner('prev')}>{constHome.PREV_LABEL}</button>
-        <button aria-label={constHome.NEXT_BUTTON_ARIA_LABEL} className="slideshow__next" tabIndex="0" onClick={() => setBanner('next')}>{constHome.NEXT_LABEL}</button>
-        <div className="slideshow__dots-container">
+        <button aria-label={constHome.PREV_BUTTON_ARIA_LABEL} className="slideshow__prev" onClick={() => setBanner('prev')}>{constHome.PREV_LABEL}</button>
+        <button aria-label={constHome.NEXT_BUTTON_ARIA_LABEL} className="slideshow__next" onClick={() => setBanner('next')}>{constHome.NEXT_LABEL}</button>
+        <ul className="slideshow__dots-container">
           {banners.map(banner => {
             return (
-              <span key={banner.id} className={"slideshow__dots-container__dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)}></span>
+              <li key={banner.id} className={"slideshow__dots-container__dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)}></li>
             )
           })}
-        </div>
-      </section>
+        </ul>
+      </li>
     </>
   )
 }

@@ -47,10 +47,10 @@ export default function Cart(props) {
       <div className="row section-main">
         <section className="cart">
           <header className="cart__header">
-            <p tabIndex="0">{constCart.CART_TITLE}</p>
-            <i tabIndex="0" aria-label={constCart.CLOSE_CART_ARIA_LABEL} onClick={() => props.showCart(false)}>X</i>
+            <p >{constCart.CART_TITLE}</p>
+            <button className="cart__close" aria-label={constCart.CLOSE_CART_ARIA_LABEL} onClick={() => props.showCart(false)}>&times;</button>
           </header>
-          <section className={"cart__body" + (cart.length === 0 ? "--empty" : "")}>
+          <ul className={"cart__body" + (cart.length === 0 ? "--empty" : "")}>
             {cart.map(item => {
               return (
                 <CartItem key={item.id} item={item} updateCart={updateCart} />
@@ -63,7 +63,7 @@ export default function Cart(props) {
                 <img src={constCart.LOWEST_PRICE_IMG} alt={constCart.LOWEST_PRICE_IMG_ALT}></img>
                 <span>{constCart.LOWEST_PRICE_TEXT}</span>
               </div>}
-          </section>
+          </ul>
           <footer className={cart.length === 0 ? "empty-cart" : ""}>
             {cart.length === 0 ?
               <Link className="btn-full btn-shopping" to='/plp?id=all' onClick={() => {

@@ -5,30 +5,23 @@
 
     &__left-col {
       display: none;
-        width: 25%;
-        background-color: #efefef;
+      width: 25%;
+      background-color: #efefef;
 
-        &__vertical-nav {
-            a {
-                display: block;
-                border-bottom: 1px solid #cccccc; 
-                text-decoration: none;
-                color: #999999;
-                font-size: 75%;
-                padding: 15px 25px;
-                font-weight: 600;
-                @include transition(all 0.3s);
+          a {
+              display: block;
+              border-bottom: .1rem solid #cccccc; 
+              text-decoration: none;
+              color: #999999;
+              font-size: 1.3rem;
+              padding: 1.5rem 2.5rem;
+              font-weight: 600;
+              @include transition(all 0.3s);
 
-                &.selected {
-                    color: #333333;
-                    font-size: 80%;
-                }
-                
-                &:focus {
-                    font-size: 80%;
-                }
-            }
-        }
+              &.selected {
+                  color: #333333;
+              }
+          }
     }
     
     &__right-col {
@@ -40,13 +33,13 @@
 
     .dropdown-nav {
         display: block;
-        margin-top: 15px;
+        margin-top: 1.5rem;
         width: 100%;
         border: none;
         background-color: $pinkColor;
-        height: 45px;
+        height: 4.5rem;
         color: #ffffff;
-        padding: 0 20px;
+        padding: 0 2rem;
     }
 }
 
