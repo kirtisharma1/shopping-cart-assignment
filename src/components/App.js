@@ -85,7 +85,7 @@ export default class App extends Component {
     const { categoryList, showCart, cart } = this.state;
     return (
       <Router>
-        <React.Fragment>
+        <>
           <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
           <main>
             <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
@@ -93,7 +93,7 @@ export default class App extends Component {
           <Footer />
           <Menu />
           {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
-        </React.Fragment>
+        </>
       </Router>
     );
   }

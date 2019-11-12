@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavLink from '../../atoms/link/NavLink';
 import CartItem from '../../molecules/cartItem/CartItem';
 import EventEmitter from '../../../utils/event';
 import { ADD_TO_CART, UPDATE_CART, CURRENCY } from '../../../constants';
@@ -43,7 +43,7 @@ export default function Cart(props) {
   }
 
   return (
-    <aside className="cart-container" role="dialog" aria-modal="true">
+    <aside className="cart-container" role="dialog" aria-modal="true" tabIndex="5">
       <div className="row section-main">
         <section className="cart">
           <header className="cart__header">
@@ -66,11 +66,11 @@ export default function Cart(props) {
           </ul>
           <footer className={cart.length === 0 ? "empty-cart" : ""}>
             {cart.length === 0 ?
-              <Link className="btn-full btn-shopping" to='/plp?id=all' onClick={() => {
+              <NavLink className="btn-full btn-shopping" to='/plp?id=all' onClick={() => {
                 if (props.showCart) props.showCart(false)
               }}>
                 {constCart.EMPTY_CART_BUTTON_TEXT}
-              </Link> :
+              </NavLink> :
               <>
                 <p>{constCart.PROMO_CODE_TEXT}</p>
                 <button className="btn-full btn-checkout">

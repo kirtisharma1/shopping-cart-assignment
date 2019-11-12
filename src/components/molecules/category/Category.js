@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavLink from '../../atoms/link/NavLink';
 import * as constHome from '../../../constants';
 import './category.scss';
 
@@ -13,7 +13,7 @@ export default function Category(props) {
           <div className="category__content">
             <h1>{category.name}</h1>
             <p>{category.description}</p>
-            <Link to={{ pathname: '/plp/' + category.key, state: { id: category.id } }}>{category.name}</Link>
+            <NavLink to={{ pathname: '/plp/' + category.key, state: { id: category.id } }}>{category.name}</NavLink>
           </div>
           <div className="category__image">
             <img src={category.imageUrl} alt={constHome.CATEGORY_IMAGE_ALT}></img>
@@ -27,7 +27,7 @@ export default function Category(props) {
           <div className="category__content">
             <h1>{category.name}</h1>
             <p>{category.description}</p>
-            <Link to={{ pathname: '/plp/' + category.key, state: { id: category.id } }}>{category.name}</Link>
+            <NavLink to={{ pathname: '/plp/' + category.key, state: { id: category.id } }}>{category.name}</NavLink>
           </div>
         </>
       )}

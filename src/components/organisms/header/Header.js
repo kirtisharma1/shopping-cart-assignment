@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavLink from '../../atoms/link/NavLink';
 import './header.scss';
 import { MENU } from '../../../constants';
 import { LOGO, LOGO_2X, HOME, PRODUCTS, SIGNIN, REGISTER } from '../../../constants/header';
@@ -23,14 +23,14 @@ export default function Header(props) {
             </picture>
           </a>
           <ul className="header__left__main-nav" aria-label="Main Navigation">
-            <li><Link to="/">{HOME}</Link></li>
-            <li><Link to="/plp/all">{PRODUCTS}</Link></li>
+            <li><NavLink to="/">{HOME}</NavLink></li>
+            <li><NavLink to="/plp/all">{PRODUCTS}</NavLink></li>
           </ul>
         </div>
         <div className="header__right">
           <ul className="header__right__signup-nav" aria-label="Login/Registration Navigation">
-            <li><Link to="/login">{SIGNIN}</Link></li>
-            <li><Link to="/registration">{REGISTER}</Link></li>
+            <li><NavLink to="/login">{SIGNIN}</NavLink></li>
+            <li><NavLink to="/registration">{REGISTER}</NavLink></li>
           </ul>
           <button type="button" className="btn-cart" onClick={() => showCart(true)}>
             <img src={CART} alt="Cart icon"></img>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import NavLink from '../../atoms/link/NavLink';
+import { withRouter } from 'react-router-dom';
 import ProductList from '../productList/ProductList';
 import DropDown from '../../atoms/dropDown/DropDown';
 import './plp.scss';
@@ -19,7 +20,7 @@ export default function PLP(props) {
       <div className='plp__left-col'>
           {categoryList.map(item => {
             return (
-              <Link key={item.key} to={{ pathname: '/plp/' + item.key, state: { id: item.id } }} className={selectedCategory && item.id === selectedCategory.id ? 'selected' : ''}>{item.name}</Link>
+              <NavLink key={item.key} to={{ pathname: '/plp/' + item.key, state: { id: item.id } }} className={selectedCategory && item.id === selectedCategory.id ? 'selected' : ''}>{item.name}</NavLink>
             )
           })}
       </div>
