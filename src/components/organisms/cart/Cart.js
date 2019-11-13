@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import NavLink from '../../atoms/link/NavLink';
 import CartItem from '../../molecules/cartItem/CartItem';
 import EventEmitter from '../../../utils/event';
 import { ADD_TO_CART, UPDATE_CART, CURRENCY } from '../../../constants';
 import * as constCart from '../../../constants/cart';
+import { checkScreen } from '../../../utils/abstract';
 import './cart.scss';
 
 export default function Cart(props) {
   const { cart } = props;
+  const cartRef = useRef(null);
   const updateCart = (item, action) => {
     const cart = [...props.cart];
     let index = cart.findIndex(prod => prod.id == item.id);
@@ -42,13 +44,32 @@ export default function Cart(props) {
     }
   }
 
+  const checkFocus = (e) => {
+    if(e.keyCode === 9){
+      focusOnTop(e);
+    }
+  }
+
+  const focusOnTop = (e) => {
+    if(!checkScreen()){
+      if(e){
+        e.preventDefault();
+      }
+      cartRef.current.focus();
+    }
+  }
+
+  useEffect(() => {
+    focusOnTop();
+  }, []);
+
   return (
-    <aside className="cart-container" role="dialog" aria-modal="true" tabIndex="5">
+    <aside className="cart-container" role="dialog" aria-modal="true">
       <div className="row section-main">
         <section className="cart">
           <header className="cart__header">
             <p >{constCart.CART_TITLE}</p>
-            <button className="cart__close" aria-label={constCart.CLOSE_CART_ARIA_LABEL} onClick={() => props.showCart(false)}>&times;</button>
+            <button ref={cartRef} className="cart__close" aria-label={constCart.CLOSE_CART_ARIA_LABEL} onClick={() => props.showCart(false)}>&times;</button>
           </header>
           <ul className={"cart__body" + (cart.length === 0 ? "--empty" : "")}>
             {cart.map(item => {
@@ -73,7 +94,7 @@ export default function Cart(props) {
               </NavLink> :
               <>
                 <p>{constCart.PROMO_CODE_TEXT}</p>
-                <button className="btn-full btn-checkout">
+                <button className="btn-full btn-checkout" onKeyDown={checkFocus}>
                   <span>{constCart.CHECKOUT_BUTTON_TEXT}</span>
                   <span>{CURRENCY + cart.reduce((a, b) => a + (b['price'] * b['quantity'] || 0), 0)} &ensp;&gt;</span>
                 </button>

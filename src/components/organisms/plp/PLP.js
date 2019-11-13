@@ -8,7 +8,7 @@ import './plp.scss';
 const Menu = withRouter(DropDown);
 
 export default function PLP(props) {
-  const { cart, categoryList, match, location, history } = props;
+  const { cart, categoryList, match, location } = props;
   let { id } = match.params;
   let details = location.state;
   const selectedCategory = details ?

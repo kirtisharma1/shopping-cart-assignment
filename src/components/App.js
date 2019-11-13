@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import MainRouter from './MainRouter';
 import Header from './organisms/header/Header';
@@ -6,95 +6,90 @@ import Footer from './organisms/footer/Footer';
 import Cart from './organisms/cart/Cart';
 import Menu from './molecules/menu/Menu';
 import EventEmitter from '../utils/event';
+import useLocalStorage from '../utils/localStorage';
 import { GET_CART, GET_CATEGORIES, URL_CART, KEY_CART, UPDATE_CART } from '../constants';
+import { checkScreen, sum } from '../utils/abstract';
 
 import '../styles/theme.scss';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      categoryList: [],
-      showCart: false,
-      cart: []
-    }
-    EventEmitter.addEventListener(UPDATE_CART, this.updateCart);
-  }
+// export default class App extends Component {
 
-  componentDidMount() {
-    this.getCategoryList();
-    this.getCart();
-  }
+//   updateCart = (cart) => {
+//     this.setState({
+//       cart
+//     }, () => {
+//       localStorage.clear();
+//       localStorage.setItem(KEY_CART, JSON.stringify(cart))
+//     })
+//   }
 
-  getCategoryList = () => {
+//   render() {
+//     const { categoryList, showCart, cart } = this.state;
+//     return (
+//       <Router>
+//         <>
+//           <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
+//           <main>
+//             <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
+//           </main>
+//           <Footer />
+//           <Menu />
+//           {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
+//         </>
+//       </Router>
+//     );
+//   }
+// }
+
+export default function App() {
+  const [categoryList, setCategoryList] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+  const [cart, setCart] = useLocalStorage(KEY_CART ,[]);
+
+  const getCategoryList = () => {
     fetch(GET_CATEGORIES)
       .then(res => res.json())
-      .then(categoryList => this.setState({
-        categoryList
-      }));
-  }
+      .then(list => setCategoryList(list));
+  };
 
-  showCart = (val) => {
-    if (val && this.checkScreen()) {
-      window.location.href = URL_CART;
-    }
-
-    this.setState({
-      showCart: val
-    });
-  }
-
-  getCart = () => {
+  const getCart = () => {
     fetch(GET_CART)
       .then(res => res.json())
-      .then(cart => this.setState({
-        cart
-      }, () => {
-        localStorage.clear();
-        localStorage.setItem(KEY_CART, JSON.stringify(cart));
-      }))
+      .then(res => setCart(res))
+  };
+
+  const handleCart = (val) => {
+    if (val && checkScreen()) {
+      window.location.href = URL_CART;
+    }
+    setShowCart(val);
   }
 
-  sum = (arr, key) => {
-    return arr.reduce((a, b) => a + (b[key] || 0), 0);
+  const updateCart = (cart) => {
+    setCart(cart);
   }
 
-  updateCart = (cart) => {
-    this.setState({
-      cart
-    }, () => {
-      localStorage.clear();
-      localStorage.setItem(KEY_CART, JSON.stringify(cart))
-    })
-  }
+  useEffect(() => {
+    getCategoryList();
+    getCart();
+    EventEmitter.addEventListener(UPDATE_CART, updateCart);
+    return () => {
+      console.log('will unmount');
+      EventEmitter.removeEventListener(UPDATE_CART);
+    }
+  }, []);
 
-  checkScreen = () => {
-    let w = window,
-      d = document,
-      e = d.documentElement,
-      g = d.getElementsByTagName('body')[0],
-      windowWidth = w.innerWidth || e.clientWidth || g.clientWidth;
-    return windowWidth < 1025;
-  }
-
-  componentWillUnmount() {
-    EventEmitter.removeEventListener(UPDATE_CART);
-  }
-
-  render() {
-    const { categoryList, showCart, cart } = this.state;
-    return (
-      <Router>
+  return (
+    <Router>
         <>
-          <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
+          <Header showCart={handleCart} cartLength={sum(cart, 'quantity')} />
           <main>
-            <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
+            <MainRouter checkScreen={checkScreen} showCart={handleCart} getCategories={getCategoryList} categoryList={categoryList} cart={cart} />
           </main>
           <Footer />
           <Menu />
-          {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
+          {showCart && !checkScreen() && <Cart showCart={handleCart} cart={cart} />}
         </>
       </Router>
-    );
-  }
+  )
 }
