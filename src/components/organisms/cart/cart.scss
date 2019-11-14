@@ -142,10 +142,11 @@
     z-index: 2;
     .section-main {
       background: transparent;
+      display: flex;
+      justify-content: flex-end;
 
       .cart {
         width: 50%;
-        float: right;
 
         &__header {
           background-color: #333333;
