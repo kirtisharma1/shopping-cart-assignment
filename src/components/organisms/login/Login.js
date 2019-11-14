@@ -47,7 +47,7 @@ export default function Login(props) {
   return (
     <>
       <section className="login section-main clearfix">
-        <div className="login__left-col" aria-label={constLogin.LOGIN_TEXT_ARIA_LABEL}>
+        <div className="login__left-col">
           <h1>{title}</h1>
           <p className="login__left-col__message">{message}</p>
         </div>

@@ -21,7 +21,7 @@ export default function Category(props) {
   );
 
   return (
-    <li className="category clearfix row" aria-label={category.name}>
+    <li className="category clearfix row">
       {className === 'even' ? (
         <>
           {categoryContent}

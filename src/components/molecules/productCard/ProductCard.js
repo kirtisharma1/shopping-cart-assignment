@@ -36,7 +36,7 @@ export default function ProductCard(props) {
   }
 
   return (
-    <li className="product" aria-label={product.name}>
+    <li className="product">
       <h3 className="product__title">{product.name}</h3>
       <Figure className="product__photo">
         <Image className="product__photo__image" src={product.imageURL} alt="Product Image" />

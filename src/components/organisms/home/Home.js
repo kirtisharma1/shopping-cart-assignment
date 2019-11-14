@@ -18,7 +18,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <ul className='section-main section-home' aria-label={HOME_PAGE_ARIA_LABEL}>
+    <ul className='section-main section-home'>
       <Carousel banners={banners} />
       {categoryList.map((category, i) => {
         return (

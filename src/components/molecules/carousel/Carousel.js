@@ -32,9 +32,15 @@ export default function Carousel(props) {
     setCurrentBanner(banners[index]);
   }
 
+  const jumpToBanner = (e, banner) => {
+    if(e.keyCode === 13){
+      setCurrentBanner(banner);
+    }
+  }
+
   return (
     <>
-      <li className="slideshow row" aria-label={constHome.CAROUSEL_ARIA_LABEL}>
+      <li className="slideshow row">
         {banners.map(banner => {
           return (
             <div className={"slideshow__slides" + (currentBanner.id ? banner.id === currentBanner.id ? "--selected" : '' : banner.order === 1 ? "--selected" : '')} key={banner.id}>
@@ -51,7 +57,7 @@ export default function Carousel(props) {
         <ul className="slideshow__dots-container">
           {banners.map(banner => {
             return (
-              <li key={banner.id} className={"slideshow__dots-container__dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)}></li>
+              <li key={banner.id} tabIndex="0" className={"slideshow__dots-container__dot " + (currentBanner.id ? banner.id === currentBanner.id ? " active" : '' : banner.order === 1 ? " active" : '')} onClick={() => setCurrentBanner(banner)} onKeyDown={(e) => jumpToBanner(e, banner)}></li>
             )
           })}
         </ul>

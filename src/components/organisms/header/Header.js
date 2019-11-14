@@ -11,7 +11,7 @@ const CART = require('../../../assets/images/cart.svg');
 export default function Header(props) {
   const { cartLength, showCart } = props;
   const showMobileNav = () => {
-    document.getElementById("nav_mobile").style.width = "100%";
+    document.getElementById("nav_mobile").style.display = "block";
   };
 
   return (

@@ -9,7 +9,7 @@ import Button from '../../atoms/button/Button';
 export default function CartItem(props) {
   const { item, updateCart } = props;
   return (
-    <li className="cart-item" aria-label={item.name}>
+    <li className="cart-item">
       <Figure className="cart-item__image-container">
         <Image className="cart-item__image-container__image" src={item.imageURL} alt='Product Image' />
       </Figure>

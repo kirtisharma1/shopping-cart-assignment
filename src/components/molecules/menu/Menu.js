@@ -7,7 +7,7 @@ import './menu.scss';
 
 export default function Menu() {
   const closeMobileNav = () => {
-    document.getElementById("nav_mobile").style.width = "0%";
+    document.getElementById("nav_mobile").style.display = "none";
   }
 
   return (
