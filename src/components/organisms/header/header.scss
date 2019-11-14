@@ -28,7 +28,7 @@
             display: none;
             font-size: 2rem;
         
-            li {
+            &__item {
                 display: inline-block;
         
                 a:link,
@@ -36,7 +36,6 @@
                     padding: 1rem 3rem;
                     text-decoration: none;
                     color: #333333;
-                    @include transition(all 0.2s);
                 }
             }
         }    
@@ -53,7 +52,7 @@
             float: right;
             font-size: 1.2rem;
         
-            li {
+            &__item {
                 display: inline-block;
                 text-align: right;
         
@@ -63,28 +62,28 @@
                 }
             }
         }
-    
-        .btn-cart {
-            float: right;
-            width: 60%;
-            height: 5rem;
-            border: none;
-            @include transition(all 0.3s);
-        
-            img {
-                width: 37%;
-                max-height: 3.5rem;
-                vertical-align: middle;
-            }
-        }
     }
+}
 
-    .menu_mobile {
-      background: #efefef;
-      padding: .5rem;
-      height: 3rem;
-      font-size: 1.5rem;
-    }
+.btn-cart {
+  float: right;
+  width: 60%;
+  height: 5rem;
+  border: none;
+  @include transition(all 0.3s);
+
+  img {
+      width: 37%;
+      max-height: 3.5rem;
+      vertical-align: middle;
+  }
+}
+
+.menu_mobile {
+  background: #efefef;
+  padding: .5rem;
+  height: 3rem;
+  font-size: 1.5rem;
 }
 
 svg {
@@ -92,60 +91,60 @@ svg {
 }
 
 @include tablet {
-    .header {
-        height: 9rem;
+  .header {
+    height: 9rem;
 
-        &__logo {
-            height: 7.5rem;
-            margin-left: 0;
-        }
-
-        &__left {
-            flex: 7;
-
-            &__main-nav {
-                display: inline-flex;
-                margin: 5rem 4rem 0;
-                width: 20rem;
-            }
-        }
-
-        &__right {
-            flex: 3;
-            
-            &__signup-nav {
-              display: inline-flex;
-                padding: 1rem 0;
-            }
-    
-            .btn-cart {
-                height: 5.5rem;
-            }
-        }
-
-        .menu_mobile {
-          background: #efefef;
-          padding: .5rem;
-        }
-        
-          .menu_mobile {
-            display: none;
-          }
+    &__logo {
+      height: 7.5rem;
+      margin-left: 0;
     }
+
+    &__left {
+      flex: 7;
+
+      &__main-nav {
+        display: inline-flex;
+        margin: 5rem 4rem 0;
+        width: 20rem;
+      }
+    }
+
+    &__right {
+      flex: 3;
+      
+      &__signup-nav {
+        display: inline-flex;
+        padding: 1rem 0;
+      } 
+    }
+
+    .menu_mobile {
+      background: #efefef;
+      padding: .5rem;
+    }
+  }
+
+  .btn-cart {
+    height: 5.5rem;
+  }
+
+  .menu_mobile {
+    display: none;
+  }
 }
 
 @include desktop {
-    .header {
-        &__left {
-            flex: 4;
-        }
-
-        &__right {
-            flex: 1;
-
-            .btn-cart img {
-                max-height: 5.5rem;
-            }
-        }
+  .header {
+    &__left {
+      flex: 4;
     }
+
+    &__right {
+      flex: 1;
+    }
+  }
+
+  .btn-cart img {
+    max-height: 5.5rem;
+  }
 }

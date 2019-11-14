@@ -6,7 +6,7 @@ export default function InputComponent(props) {
   } = props;
 
   return (
-    <div>
+    <div className='input-field'>
       <label htmlFor={type}></label>
       <input type={type}
         aria-label={placeholder || ''}

@@ -1,6 +1,8 @@
 import React from 'react';
 import NavLink from '../../atoms/link/NavLink';
-import { MENU } from '../../../constants';
+import { HOME, PRODUCTS, SIGNIN, REGISTER } from '../../../constants/header';
+import List from '../../atoms/list/List';
+import Button from '../../atoms/button/Button';
 import './menu.scss';
 
 export default function Menu() {
@@ -10,13 +12,20 @@ export default function Menu() {
 
   return (
     <nav id="nav_mobile" className="menu">
-      <button onClick= {closeMobileNav} className="menu__close">&times;</button>
-      <ul className="menu__content">
-        <li><NavLink to="/" onClick={closeMobileNav}>Home</NavLink></li>
-        <li><NavLink to="/plp/all" onClick={closeMobileNav}>Products</NavLink></li>
-        <li><NavLink to="/login" onClick={closeMobileNav}>SignIn</NavLink></li>
-        <li><NavLink to="/registration" onClick={closeMobileNav}>Register</NavLink></li>
-      </ul>
+      <Button onClick={closeMobileNav} className="menu__close">
+        &times;
+      </Button>
+      <List
+        childNodes={
+          [
+            <NavLink to="/" onClick={closeMobileNav}>{HOME}</NavLink>,
+            <NavLink to="/plp/all" onClick={closeMobileNav}>{PRODUCTS}</NavLink>,
+            <NavLink to="/login" onClick={closeMobileNav}>{SIGNIN}</NavLink>,
+            <NavLink to="/registration" onClick={closeMobileNav}>{REGISTER}</NavLink>
+          ]
+        }
+        className="menu__content"
+      />
     </nav>
   )
 }

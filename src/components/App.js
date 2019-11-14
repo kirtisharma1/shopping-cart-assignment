@@ -12,35 +12,6 @@ import { checkScreen, sum } from '../utils/abstract';
 
 import '../styles/theme.scss';
 
-// export default class App extends Component {
-
-//   updateCart = (cart) => {
-//     this.setState({
-//       cart
-//     }, () => {
-//       localStorage.clear();
-//       localStorage.setItem(KEY_CART, JSON.stringify(cart))
-//     })
-//   }
-
-//   render() {
-//     const { categoryList, showCart, cart } = this.state;
-//     return (
-//       <Router>
-//         <>
-//           <Header showCart={this.showCart} cartLength={this.sum(cart, 'quantity')} />
-//           <main>
-//             <MainRouter checkScreen={this.checkScreen} showCart={this.showCart} getCategories={this.getCategoryList} categoryList={categoryList} cart={cart} />
-//           </main>
-//           <Footer />
-//           <Menu />
-//           {showCart && !this.checkScreen() && <Cart showCart={this.showCart} cart={cart} />}
-//         </>
-//       </Router>
-//     );
-//   }
-// }
-
 export default function App() {
   const [categoryList, setCategoryList] = useState([]);
   const [showCart, setShowCart] = useState(false);
@@ -65,8 +36,8 @@ export default function App() {
     setShowCart(val);
   }
 
-  const updateCart = (cart) => {
-    setCart(cart);
+  const updateCart = (list) => {
+    setCart(list);
   }
 
   useEffect(() => {

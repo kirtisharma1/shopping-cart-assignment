@@ -1,46 +1,46 @@
 @import '../../../styles/common.scss';
 
 .plp {
+  display: block;
+
+  &__left-col {
+    display: none;
+    width: 25%;
+    background-color: #efefef;
+
+    &__item {
+      display: block;
+      border-bottom: .1rem solid #cccccc; 
+      text-decoration: none;
+      color: #999999;
+      font-size: 1.3rem;
+      padding: 1.5rem 2.5rem;
+      font-weight: 600;
+      @include transition(all 0.3s);
+
+      &.selected {
+        color: #333333;
+      }
+    }
+  }
+  
+  &__right-col {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  .dropdown-nav {
     display: block;
-
-    &__left-col {
-      display: none;
-      width: 25%;
-      background-color: #efefef;
-
-          a {
-              display: block;
-              border-bottom: .1rem solid #cccccc; 
-              text-decoration: none;
-              color: #999999;
-              font-size: 1.3rem;
-              padding: 1.5rem 2.5rem;
-              font-weight: 600;
-              @include transition(all 0.3s);
-
-              &.selected {
-                  color: #333333;
-              }
-          }
-    }
-    
-    &__right-col {
-        display: flex;
-        flex-wrap: wrap;
-        flex: 1;
-        align-items: stretch;
-    }
-
-    .dropdown-nav {
-        display: block;
-        margin-top: 1.5rem;
-        width: 100%;
-        border: none;
-        background-color: $pinkColor;
-        height: 4.5rem;
-        color: #ffffff;
-        padding: 0 2rem;
-    }
+    margin-top: 1.5rem;
+    width: 100%;
+    border: none;
+    background-color: $pinkColor;
+    height: 4.5rem;
+    color: #ffffff;
+    padding: 0 2rem;
+  }
 }
 
 @include tablet {
@@ -48,7 +48,7 @@
     display: flex;
 
     &__left-col {
-        display: block;
+      display: block;
     }
 
     .dropdown-nav {

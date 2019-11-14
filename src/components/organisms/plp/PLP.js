@@ -20,7 +20,13 @@ export default function PLP(props) {
       <div className='plp__left-col'>
           {categoryList.map(item => {
             return (
-              <NavLink key={item.key} to={{ pathname: '/plp/' + item.key, state: { id: item.id } }} className={selectedCategory && item.id === selectedCategory.id ? 'selected' : ''}>{item.name}</NavLink>
+              <NavLink 
+                key={item.key} 
+                to={{ pathname: '/plp/' + item.key, state: { id: item.id } }} 
+                className={`plp__left-col__item ${(selectedCategory && item.id === selectedCategory.id ? 'selected' : '')}`}
+              >
+                {item.name}
+              </NavLink>
             )
           })}
       </div>

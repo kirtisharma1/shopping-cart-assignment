@@ -1,59 +1,60 @@
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #ffffff;
 
-    figure {
-        flex: 0 1 20%;
-        height: 8rem;
+  &__image-container {
+    flex: 0 1 20%;
+    height: 8rem;
 
-        img {
-            height: 100%;
-            width: auto;
-            max-width: 10rem;
-        }
+    &__image {
+      height: 100%;
+      width: auto;
+      max-width: 10rem;
+    }
+  }
+
+  &__details {
+    flex: 0 1 80%;
+    padding-left: 0.5rem;
+
+    &__title {
+      font-weight: 700;
+      max-width: 85%;
+      font-size: 1.3rem;
+      line-height: 140%;
     }
 
-    &__details {
-        flex: 0 1 80%;
-        padding-left: .5rem;
+    &__price-quantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
 
-        h3 {
-            font-weight: 700;
-            max-width: 85%;
-            font-size: 1.3rem;
-            line-height: 140%;
-        }
-
-        &__price-quantity {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-
-            div:first-child {
-                &__price {
-                    padding-left: 1rem;
-                }
-            }
-
-            &__substract, &__add {
-              height: 2.5rem;
-              width: 2.5rem;
-              border-radius: 50%;
-              margin: 1rem;
-
-              span {
-                  display: block;
-                  padding-bottom: .5rem;
-                  line-height: 2rem;
-                  font-weight: 700;
-                  font-size: 2rem;
-              }
-            }
-        }
+      &__price {
+        padding-left: 1rem;
+      }
     }
+  }
+
+  &__controls {
+    &__substract,
+    &__add {
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+      margin: 1rem;
+
+      &__text {
+        display: block;
+        padding-bottom: 0.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        font-size: 2rem;
+      }
+    }
+  }
 }

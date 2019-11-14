@@ -1,58 +1,36 @@
 @import '../../../styles/common.scss';
 
 .login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__left-col, &__right-col {
+    padding: 2.5rem;
+  }
+  
+  &__left-col {
+    &__message {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      line-height: 145%;
+    }
+  }
+  
+  &__right-col {
     width: 100%;
-    margin: 0 auto;
 
-
-    &__left-col, &__right-col {
-        float: left;
-        padding: 2.5rem;
-    }
-    
-    &__left-col {
-
-        p {
-            margin-top: 2rem;
-            font-size: 1.2rem;
-            line-height: 145%;
-        }
-    }
-    
-    &__right-col {
+    &__btn {
         width: 100%;
-    
-        div{
-            margin: 2.5rem 0;
-    
-            label {
-                display: block;
-            }
-    
-            input[type = text],
-            input[type = email], 
-            input[type = password] {
-              padding: .5rem;
-                border: none;
-                border-bottom: .2rem solid #dddddd;
-                width: 100%;
-                height: 4.5rem;
-
-                &:focus {
-                    border-bottom: .2rem solid $pinkColor;
-                }
-            }
-        }
-    
-        &__btn {
-            width: 100%;
-            height: 4rem;
-        }
+        height: 4rem;
     }
+  }
 }
 
 @include tablet {
     .login {
+      flex-direction: row;
         width: 75%;    
     
         &__left-col, &__right-col {
@@ -60,40 +38,19 @@
         }
         
         &__left-col {
-            width: 40%;
+          flex: 2;
             padding: 7.5rem 4rem;
     
-            p {
+            &__message {
                 font-size: 1.2rem;
             }
         }
         
         &__right-col {
-            width: 60%;
-        
-            div{
-                margin: 2.5rem 0;
-        
-                input[type = text],
-                input[type = email], 
-                input[type = password] {
-                    width: 100%;
-                }
-            }
-        
+          flex: 3;
             &__btn {
                 width: 60%;
             }
-        }
-    }
-}
-
-@include desktop {
-    .login__right-col div {
-        input[type = text],
-        input[type = email], 
-        input[type = password] {
-            width: 60%;
         }
     }
 }

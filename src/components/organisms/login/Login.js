@@ -49,7 +49,7 @@ export default function Login(props) {
       <section className="login section-main clearfix">
         <div className="login__left-col" aria-label={constLogin.LOGIN_TEXT_ARIA_LABEL}>
           <h1>{title}</h1>
-          <p>{message}</p>
+          <p className="login__left-col__message">{message}</p>
         </div>
         <div className="login__right-col">
           <form method="POST" action="/login" aria-label={constLogin.LOGIN_FORM_ARIA_LABEL} onSubmit={onSubmit}>
