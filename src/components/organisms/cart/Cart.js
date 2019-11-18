@@ -4,13 +4,14 @@ import CartItem from '../../molecules/cartItem/CartItem';
 import EventEmitter from '../../../utils/event';
 import { ADD_TO_CART, UPDATE_CART, CURRENCY } from '../../../constants';
 import * as constCart from '../../../constants/cart';
-import { checkScreen } from '../../../utils/abstract';
+import useWindowSize from '../../../utils/windowResize';
 import Button from '../../atoms/button/Button';
 import Image from '../../atoms/image/Image';
 import './cart.scss';
 
 export default function Cart(props) {
   const { cart, showCart } = props;
+  const [winWidth, winHeight] = useWindowSize();
   const cartRef = useRef(null);
   const updateCart = (item, action) => {
     const updatedCart = [...cart];
@@ -49,7 +50,7 @@ export default function Cart(props) {
   }
 
   const focusOnTop = (e) => {
-    if (!checkScreen()) {
+    if (winWidth >= 1024) {
       if (e) {
         e.preventDefault();
       }
