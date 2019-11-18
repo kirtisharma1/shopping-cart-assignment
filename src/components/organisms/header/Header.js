@@ -9,10 +9,7 @@ import Button from '../../atoms/button/Button';
 const CART = require('../../../assets/images/cart.svg');
 
 export default function Header(props) {
-  const { cartLength, showCart } = props;
-  const showMobileNav = () => {
-    document.getElementById("nav_mobile").style.display = "block";
-  };
+  const { cartLength, showCart, showMenu } = props;
 
   return (
     <header className="header">
@@ -24,24 +21,24 @@ export default function Header(props) {
               <img src={LOGO} className="header__logo" alt="Brand Logo" />
             </picture>
           </a>
-          <List 
+          <List
             childNodes={
               [
-                <NavLink to="/">{HOME}</NavLink>, 
+                <NavLink to="/">{HOME}</NavLink>,
                 <NavLink to="/plp/all">{PRODUCTS}</NavLink>
               ]
-            } 
+            }
             className="header__left__main-nav"
           />
         </div>
         <div className="header__right">
-          <List 
+          <List
             childNodes={
               [
-                <NavLink to="/login">{SIGNIN}</NavLink>, 
+                <NavLink to="/login">{SIGNIN}</NavLink>,
                 <NavLink to="/registration">{REGISTER}</NavLink>
               ]
-            } 
+            }
             className="header__right__signup-nav"
           />
           <Button className="btn-cart" onClick={() => showCart(true)}>
@@ -50,7 +47,9 @@ export default function Header(props) {
           </Button>
         </div>
       </nav>
-      <div className="menu_mobile" onClick={showMobileNav}>&#9776; {MENU}</div>
+      <div className="menu_mobile" onClick={showMenu}>
+        <button className="btn-empty">&#9776; {MENU}</button>
+      </div>
     </header>
   )
 }

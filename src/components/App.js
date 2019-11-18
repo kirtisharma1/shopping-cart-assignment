@@ -9,7 +9,7 @@ import EventEmitter from '../utils/event';
 import useLocalStorage from '../utils/localStorage';
 import useWindowSize from '../utils/windowResize';
 import { GET_CART, GET_CATEGORIES, URL_CART, KEY_CART, UPDATE_CART } from '../constants';
-import { sum } from '../utils/abstract';
+import { getHash, sum } from '../utils/abstract';
 
 import '../styles/theme.scss';
 
@@ -18,6 +18,7 @@ export default function App() {
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useLocalStorage(KEY_CART, []);
   const [winWidth, winHeight] = useWindowSize();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const getCategoryList = () => {
     fetch(GET_CATEGORIES)
@@ -42,10 +43,14 @@ export default function App() {
     setCart(list);
   };
 
-  const getHash = (url) => {
-    const arr = url.split('/');
-    return arr[arr.length - 1].toLowerCase();
+  const showMenu = () => {
+    setShowMobileMenu(true);
   }
+
+  const hideMenu = () => {
+    document.getElementById("nav_mobile").style.width = "0";
+    setShowMobileMenu(false);
+  };
 
   useEffect(() => {
     getCategoryList();
@@ -59,22 +64,28 @@ export default function App() {
 
   useEffect(() => {
     getHash(window.location.hash);
-    if(winWidth >= 1024 && getHash(window.location.hash) === 'cart'){
-      window.location.hash= '#';
+    if (winWidth >= 1024 && getHash(window.location.hash) === 'cart') {
+      window.location.hash = '#';
     };
   }, [winWidth]);
 
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.getElementById("nav_mobile").style.width = "100%";
+    }
+  }, [showMobileMenu])
+
   return (
-      <Router>
-        <>
-          <Header showCart={handleCart} cartLength={sum(cart, 'quantity')} />
-          <main>
-            <MainRouter checkScreen={winWidth < 1024} showCart={handleCart} getCategories={getCategoryList} categoryList={categoryList} cart={cart} />
-          </main>
-          <Footer />
-          <Menu />
-          {showCart && winWidth >= 1024 && <Cart showCart={handleCart} cart={cart} />}
-        </>
-      </Router>
+    <Router>
+      <>
+        <Header showCart={handleCart} showMenu={showMenu} cartLength={sum(cart, 'quantity')} />
+        <main>
+          <MainRouter checkScreen={winWidth < 1024} showCart={handleCart} getCategories={getCategoryList} categoryList={categoryList} cart={cart} />
+        </main>
+        <Footer />
+        {showMobileMenu && winWidth < 1024 && <Menu id="nav_mobile" hideMenu={hideMenu} />}
+        {showCart && winWidth >= 1024 && <Cart showCart={handleCart} cart={cart} />}
+      </>
+    </Router>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Button(props) {
+export default React.forwardRef((props, ref) => {
   return (
-    <button type="button" {...props}>
+    <button type="button" {...props} ref={ref}>
       {props.children}
     </button>
   )
-}
+})

@@ -68,14 +68,14 @@ export default function Cart(props) {
         <section className="cart">
           <header className="cart__header">
             <p className="cart__header__title">{constCart.CART_TITLE}</p>
-            <button
+            <Button
               ref={cartRef}
               className="cart__close"
               aria-label={constCart.CLOSE_CART_ARIA_LABEL}
               onClick={() => showCart(false)}
             >
               &times;
-            </button>
+            </Button>
           </header>
           <ul className={"cart__body" + (cart.length === 0 ? "--empty" : "")}>
             {cart.map(item => {
