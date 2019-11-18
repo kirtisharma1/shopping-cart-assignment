@@ -12,8 +12,3 @@ export default function useWindowSize() {
   }, []);
   return size;
 }
-
-function ShowWindowDimensions(props) {
-  const [width, height] = useWindowSize();
-  return <span>Window size: {width} x {height}</span>;
-}
