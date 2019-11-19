@@ -29,15 +29,6 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-.clearfix {zoom: 1}
-.clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
 h1 {
     font-size: 2rem;
     font-weight: 700;

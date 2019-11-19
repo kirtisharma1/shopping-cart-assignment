@@ -21,7 +21,7 @@ export default function Category(props) {
   );
 
   return (
-    <li className="category clearfix row">
+    <li className="category row">
       {className === 'even' ? (
         <>
           {categoryContent}
