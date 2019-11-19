@@ -17,6 +17,7 @@ $pinkColor: #CE0060;
 
 html {
     font-size: 62.5%;
+    overflow-y:scroll;
 }
 
 body {
@@ -71,6 +72,7 @@ ul {
 .btn-empty {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 
 /* ------ Main Content ------ */

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router} from "react-router-dom";
 import MainRouter from './MainRouter';
 import Header from './organisms/header/Header';
 import Footer from './organisms/footer/Footer';

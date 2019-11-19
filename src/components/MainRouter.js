@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import Login from './organisms/login/Login';
 import Home from './organisms/home/Home';
 import PLP from './organisms/plp/PLP';

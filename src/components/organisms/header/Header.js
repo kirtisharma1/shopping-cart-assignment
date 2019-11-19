@@ -47,8 +47,8 @@ export default function Header(props) {
           </Button>
         </div>
       </nav>
-      <div className="menu_mobile" onClick={showMenu}>
-        <button className="btn-empty">&#9776; {MENU}</button>
+      <div className="menu_mobile">
+        <Button className="btn-empty" onClick={showMenu}>&#9776; {MENU}</Button>
       </div>
     </header>
   )

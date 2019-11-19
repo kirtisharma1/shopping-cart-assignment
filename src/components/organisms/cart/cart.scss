@@ -13,7 +13,7 @@
         background-color: #ffffff;
         padding: 1rem;
         font-size: 1.5rem;
-        margin-top: 2rem;
+        margin-top: 0;
         font-weight: 700;
 
         &__title {
@@ -117,6 +117,10 @@
   .cart-container {
     .section-main {
       .cart {
+        &__header {
+          margin-top: 1rem;
+        }
+
         &__body {
           min-height: 73vh;
 
