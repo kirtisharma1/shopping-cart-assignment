@@ -1,0 +1,208 @@
+@import "../../../styles/common.scss";
+
+.cart-container {
+  .section-main {
+    background-color: #efefef;
+
+    .cart {
+      width: 100%;
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffffff;
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-top: 0;
+        font-weight: 700;
+
+        &__title {
+          padding: 1rem;
+        }
+      }
+
+      &__body {
+        background-color: #efefef;
+        padding-bottom: 9rem;
+        min-height: 66vh;
+
+        &--empty {
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          padding: 34vh 0;
+        }
+
+        &__lowest-price {
+          display: flex;
+          align-items: center;
+          background-color: #ffffff;
+          padding: 1rem 1.5rem;
+          margin: 1.5rem;
+          border-radius: 0.5rem;
+          font-size: 1.2rem;
+          &__image {
+            margin-right: 2rem;
+            height: 3.5rem;
+          }
+        }
+      }
+
+      &__empty {
+        margin: 0 auto;
+        line-height: 150%;
+
+        &__text:first-child {
+          font-weight: 700;
+          font-size: 1.8rem;
+          padding-bottom: 1rem;
+        }
+
+        &__text:last-child {
+          font-size: 1.5rem;
+        }
+      }
+
+      &__close {
+        display: none;
+      }
+
+      &__footer {
+        background-color: #ffffff;
+        box-shadow: 0rem -0.2rem 0.4rem #cccccc;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+
+        &__promo-text {
+          text-align: center;
+          margin-bottom: 1rem;
+          color: #333333;
+          font-size: 1.5rem;
+        }
+
+        &.empty {
+          box-shadow: none;
+          z-index: 1;
+        }
+      }
+
+      .btn-checkout {
+        width: 94%;
+        margin: 0 3%;
+        border-radius: 0.3rem;
+        font-size: 1.6rem;
+        height: 4.5rem;
+        padding: 0 2rem;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-shopping {
+        display: block;
+        margin: 0 auto;
+        height: 4rem;
+        width: 95%;
+        text-decoration: none;
+        padding: 1.1rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .cart-container {
+    .section-main {
+      .cart {
+        &__header {
+          margin-top: 1rem;
+        }
+
+        &__body {
+          min-height: 73vh;
+
+          &--empty {
+            padding: 20rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .cart-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    .section-main {
+      background: transparent;
+      display: flex;
+      justify-content: flex-end;
+
+      .cart {
+        width: 50%;
+
+        &__header {
+          background-color: #333333;
+          color: #ffffff;
+          margin-top: 0;
+        }
+
+        &__close {
+          display: block;
+          background: transparent;
+          border: none;
+          font-size: 3rem;
+          padding: 0 0.5rem;
+          color: #ffffff;
+          cursor: pointer;
+        }
+
+        &__body {
+          height: 50rem;
+          min-height: 50rem;
+          overflow: auto;
+
+          &--empty {
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+          }
+
+          &__lowest-price {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            &__image {
+              margin-right: 2rem;
+              height: 3.5rem;
+            }
+          }
+        }
+
+        &__footer {
+          position: static;
+
+          &.empty-cart {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}

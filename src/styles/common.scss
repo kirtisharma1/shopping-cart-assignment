@@ -1,0 +1,28 @@
+@import './media.scss';
+$pinkColor: #CE0060;
+
+@mixin transform($property) {
+    transform: $property;
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    -webkit-transform: $property;
+}
+
+@mixin border-radius($property) {
+    border-radius: $property;
+    -webkit-border-radius: $property;
+    -moz-border-radius: $property;
+    -ms-border-radius: $property;
+    -o-border-radius: $property;
+    -webkit-border-radius: $property;
+}
+
+@mixin transition($property) {
+    transition: $property;
+    -webkit-transition: $property;
+    -moz-transition: $property;
+    -ms-transition: $property;
+    -o-transition: $property;
+}

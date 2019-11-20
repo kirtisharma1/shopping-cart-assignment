@@ -1,0 +1,67 @@
+@import "./../../../styles/common.scss";
+
+.category {
+  display: flex;
+  box-shadow: 0rem 2.5rem 3.5rem -4.5rem #000000;
+  padding: 2rem 0;
+  align-items: center;
+
+  &__content,
+  &__image-container {
+    display: inline-block;
+    text-align: center;
+  }
+
+  &__content {
+    flex: 3;
+    padding: 3rem 0.5rem;
+
+    a {
+      font-size: 1.5rem;
+      display: inline-block;
+      height: 4rem;
+      background-color: $pinkColor;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 1rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__description {
+    margin-top: 1.5rem;
+    line-height: 145%;
+    font-size: 1.2rem;
+  }
+
+  &__image-container {
+    flex: 2;
+
+    &__image {
+      width: 100%;
+    }
+  }
+}
+
+@include tablet {
+  .category {
+    padding: 2rem 1.5rem;
+
+    &__content {
+      flex: 7;
+      padding: 3rem;
+    }
+
+    &__description {
+      font-size: 1.3rem;
+    }
+
+    &__image-container {
+      flex: 3;
+    }
+  }
+}
